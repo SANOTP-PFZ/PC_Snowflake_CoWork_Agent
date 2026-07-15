@@ -124,13 +124,3 @@ def render():
             if st.button("Explore →", key="go_tad", use_container_width=True):
                 st.session_state["screen"] = "tad"
                 st.rerun()
-
-    # Stats tiles
-    st.markdown("")
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.metric("Total agents", "14")
-    with c2:
-        st.metric("Therapy areas", "7")
-    with c3:
-        st.metric("Data sources", "4")

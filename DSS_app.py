@@ -344,3 +344,9 @@ elif screen == "tad":
     tad_grid.render()
 elif screen == "agent":
     agent_detail.render()
+
+# Footer
+st.markdown(
+    "<div style='text-align:center;color:#8a8982;font-size:12px;margin-top:48px;padding:16px 0;border-top:1px solid rgba(0,0,0,0.10)'>Developed by ZS Primary Care Team</div>",
+    unsafe_allow_html=True,
+)
