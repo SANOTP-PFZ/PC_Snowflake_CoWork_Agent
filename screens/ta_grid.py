@@ -11,8 +11,8 @@ def render():
 
     # AI disclaimer
     st.warning(
-        "**AI-generated responses.** Answers from these agents are produced by AI "
-        "and may be incomplete or inaccurate. Review important outputs against source data before making decisions.",
+        "Answers from these agents are produced by AI and may be incomplete or inaccurate. "
+        "Review important outputs against source data before making decisions.",
         icon="⚠️",
     )
 
