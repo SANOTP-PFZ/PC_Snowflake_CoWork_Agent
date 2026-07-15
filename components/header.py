@@ -1,20 +1,21 @@
 import streamlit as st
 import base64
-import os
+from pathlib import Path
 
 
 def render_header():
-    logo_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logo.png")
-    with open(logo_path, "rb") as f:
-        logo_b64 = base64.b64encode(f.read()).decode()
+    logo_path = Path(__file__).parent.parent / "logo.png"
+    try:
+        logo_b64 = base64.b64encode(logo_path.read_bytes()).decode()
+        logo_html = f'<img src="data:image/png;base64,{logo_b64}" height="36" style="object-fit:contain"/>'
+    except Exception:
+        logo_html = ""
 
     st.markdown(
         f"""
         <div class="hub-header">
             <div class="hub-header-left">
-                <div class="hub-logo">
-                    <img src="data:image/png;base64,{logo_b64}" width="34" height="34" style="border-radius:8px"/>
-                </div>
+                {logo_html}
                 <div>
                     <div class="hub-title">Cortex Agent Hub</div>
                     <div class="hub-subtitle">Pfizer CoWork · unified agent workspace</div>
