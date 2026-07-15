@@ -67,37 +67,33 @@ def render():
     except Exception:
         df = None
 
-    st.markdown(
-        '<div style="background:#ffffff;border:1px solid rgba(0,47,108,0.12);border-radius:14px;padding:20px 24px;margin-bottom:8px">',
-        unsafe_allow_html=True,
-    )
-    cols = st.columns(5)
-    for i, brand in enumerate(BRAND_CONFIG):
-        with cols[i]:
-            values = _get_brand_trend(df, brand["brand_db"], "TRX MARKET SHARE") if df is not None else None
+    with st.container(border=True):
+        cols = st.columns(5)
+        for i, brand in enumerate(BRAND_CONFIG):
+            with cols[i]:
+                values = _get_brand_trend(df, brand["brand_db"], "TRX MARKET SHARE") if df is not None else None
 
-            if values and len(values) >= 2:
-                latest = f"{values[-1]:.1f}%"
-                direction = "up" if values[-1] >= values[0] else "down"
-            else:
-                values = [50, 50, 50, 50]
-                latest = "—"
-                direction = "up"
+                if values and len(values) >= 2:
+                    latest = f"{values[-1]:.1f}%"
+                    direction = "up" if values[-1] >= values[0] else "down"
+                else:
+                    values = [50, 50, 50, 50]
+                    latest = "—"
+                    direction = "up"
 
-            line_color = "#0093D0" if direction == "up" else "#a32d2d"
+                line_color = "#0093D0" if direction == "up" else "#a32d2d"
 
-            svg = _sparkline_svg(values, line_color)
-            st.markdown(
-                f"""
-                <div class="brand-card">
-                    <div class="brand-name">{brand['name']}</div>
-                    <div class="brand-category">{brand['market']} · TRX {latest}</div>
-                    {svg}
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-    st.markdown('</div>', unsafe_allow_html=True)
+                svg = _sparkline_svg(values, line_color)
+                st.markdown(
+                    f"""
+                    <div class="brand-card">
+                        <div class="brand-name">{brand['name']}</div>
+                        <div class="brand-category">{brand['market']} · TRX {latest}</div>
+                        {svg}
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
 
     st.divider()
 
