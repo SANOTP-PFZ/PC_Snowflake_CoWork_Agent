@@ -67,35 +67,33 @@ def render():
     except Exception:
         df = None
 
-    st.markdown('<div class="brand-summary-box">', unsafe_allow_html=True)
-    with st.container():
-        cols = st.columns(5)
-        for i, brand in enumerate(BRAND_CONFIG):
-            with cols[i]:
-                values = _get_brand_trend(df, brand["brand_db"], "TRX MARKET SHARE") if df is not None else None
+    st.markdown('<div style="margin-bottom:12px"></div>', unsafe_allow_html=True)
+    cols = st.columns(5)
+    for i, brand in enumerate(BRAND_CONFIG):
+        with cols[i]:
+            values = _get_brand_trend(df, brand["brand_db"], "TRX MARKET SHARE") if df is not None else None
 
-                if values and len(values) >= 2:
-                    latest = f"{values[-1]:.1f}%"
-                    direction = "up" if values[-1] >= values[0] else "down"
-                else:
-                    values = [50, 50, 50, 50]
-                    latest = "—"
-                    direction = "up"
+            if values and len(values) >= 2:
+                latest = f"{values[-1]:.1f}%"
+                direction = "up" if values[-1] >= values[0] else "down"
+            else:
+                values = [50, 50, 50, 50]
+                latest = "—"
+                direction = "up"
 
-                line_color = "#0093D0" if direction == "up" else "#a32d2d"
+            line_color = "#0093D0" if direction == "up" else "#a32d2d"
 
-                svg = _sparkline_svg(values, line_color)
-                st.markdown(
-                    f"""
-                    <div class="brand-card">
-                        <div class="brand-name">{brand['name']}</div>
-                        <div class="brand-category">{brand['market']} · TRX {latest}</div>
-                        {svg}
-                    </div>
-                    """,
-                    unsafe_allow_html=True,
-                )
-    st.markdown('</div>', unsafe_allow_html=True)
+            svg = _sparkline_svg(values, line_color)
+            st.markdown(
+                f"""
+                <div class="brand-trend-box">
+                    <div class="brand-name">{brand['name']}</div>
+                    <div class="brand-category">{brand['market']} · TRX {latest}</div>
+                    {svg}
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
     st.divider()
 

@@ -56,13 +56,15 @@ st.markdown(
         background-color: transparent !important;
     }
 
-    /* Brand summary box */
-    .brand-summary-box {
+    /* Brand summary box - individual trend card */
+    .brand-trend-box {
         background: #ffffff;
-        border: 2px solid #0093D0;
-        border-radius: 14px;
-        padding: 20px 24px;
-        margin-bottom: 12px;
+        border: 1.5px solid rgba(0, 47, 108, 0.18);
+        border-radius: 12px;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
     }
 
     /* Bordered containers (st.container(border=True)) */
