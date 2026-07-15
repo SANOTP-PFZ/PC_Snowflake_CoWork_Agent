@@ -1,16 +1,49 @@
 import streamlit as st
+import dataiku
 
-from data.agents import BRANDS, TA_AGENTS
+from data.agents import TA_AGENTS
+
+
+DATASET_NAME = "SQL_EARNINGS_REPORT_MASTER_DATASET_SF"
+
+BRAND_CONFIG = [
+    {"name": "Prevnar", "market": "PCV", "brand_db": "PREVNAR"},
+    {"name": "Abrysvo", "market": "RSV", "brand_db": "ABRYSVO"},
+    {"name": "Comirnaty", "market": "COVID_VACCINES", "brand_db": "COMIRNATY"},
+    {"name": "Eliquis", "market": "OAC", "brand_db": "ELIQUIS"},
+    {"name": "Nurtec", "market": "OCGRP", "brand_db": "NURTEC"},
+]
+
+
+@st.cache_data(ttl=3600)
+def _load_data():
+    """Load full dataset from Dataiku."""
+    dataset = dataiku.Dataset(DATASET_NAME)
+    return dataset.get_dataframe()
+
+
+def _get_brand_trend(df, brand_db, metric="TRX MARKET SHARE"):
+    """Extract QoQ trend values for a brand."""
+    filtered = df[
+        (df["BRAND"] == brand_db)
+        & (df["METRICS"] == metric)
+        & (df["YR_QTR_TXT"] >= "2025Q1")
+    ].sort_values("YR_QTR_TXT")
+    if filtered.empty:
+        return None
+    return filtered["VALUE"].tolist()
 
 
 def _sparkline_svg(values: list, color: str) -> str:
     """Generate an inline SVG sparkline from a list of values."""
-    max_val = max(values) if values else 1
-    min_val = min(values) if values else 0
+    if not values or len(values) < 2:
+        return ""
+    max_val = max(values)
+    min_val = min(values)
     span = max_val - min_val or 1
     width = 100
     height = 28
-    step = width / (len(values) - 1) if len(values) > 1 else width
+    step = width / (len(values) - 1)
     points = " ".join(
         f"{i * step:.1f},{height - ((v - min_val) / span) * (height - 4) - 2:.1f}"
         for i, v in enumerate(values)
@@ -26,24 +59,42 @@ def _sparkline_svg(values: list, color: str) -> str:
 def render():
     # National Brand Summary
     st.markdown("#### National Brand Summary")
-    st.caption("Summaries sourced from NPA data source")
+    st.caption("QoQ TRX Market Share trends from 2025Q1 onwards")
+
+    # Load data from Dataiku
+    try:
+        df = _load_data()
+    except Exception:
+        df = None
 
     cols = st.columns(5)
-    for i, brand in enumerate(BRANDS):
+    for i, brand in enumerate(BRAND_CONFIG):
         with cols[i]:
-            direction = brand["direction"]
+            values = _get_brand_trend(df, brand["brand_db"], "TRX MARKET SHARE") if df is not None else None
+
+            if values and len(values) >= 2:
+                change = values[-1] - values[0]
+                direction = "up" if change >= 0 else "down"
+                trend_str = f"+{change:.1f}%" if change >= 0 else f"{change:.1f}%"
+                latest = f"{values[-1]:.1f}%"
+            else:
+                values = [50, 50, 50, 50]
+                direction = "up"
+                trend_str = "N/A"
+                latest = "—"
+
             line_color = "#3b6d11" if direction == "up" else "#a32d2d"
             chip_class = "green" if direction == "up" else "red"
             icon = "↑" if direction == "up" else "↓"
 
-            svg = _sparkline_svg(brand["values"], line_color)
+            svg = _sparkline_svg(values, line_color)
             st.markdown(
                 f"""
                 <div class="brand-card">
                     <div class="brand-name">{brand['name']}</div>
-                    <div class="brand-category">{brand['category']}</div>
+                    <div class="brand-category">{brand['market']} · TRX {latest}</div>
                     {svg}
-                    <span class="chip chip-{chip_class}">{icon} {brand['trend']}</span>
+                    <span class="chip chip-{chip_class}">{icon} {trend_str}</span>
                 </div>
                 """,
                 unsafe_allow_html=True,
