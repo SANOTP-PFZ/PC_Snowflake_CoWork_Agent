@@ -14,22 +14,22 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* ===== Global palette ===== */
+    /* ===== Global palette (Pfizer) ===== */
     :root {
-        --surface-0: #f0efe9;
-        --surface-1: #f6f5f0;
-        --surface-2: #f0efe9;
-        --text-primary: #1b1b19;
-        --text-secondary: #5f5e5a;
-        --text-muted: #8a8982;
-        --border: rgba(0,0,0,0.10);
-        --border-strong: rgba(0,0,0,0.20);
-        --accent-bg: #e6f1fb;
-        --accent-text: #185fa5;
-        --teal-bg: #e1f5ee;
-        --teal-text: #0f6e56;
-        --success-bg: #eaf3de;
-        --success-text: #3b6d11;
+        --surface-0: #f4f8fb;
+        --surface-1: #ffffff;
+        --surface-2: #f4f8fb;
+        --text-primary: #002F6C;
+        --text-secondary: #4a5568;
+        --text-muted: #718096;
+        --border: rgba(0, 47, 108, 0.10);
+        --border-strong: rgba(0, 47, 108, 0.20);
+        --accent-bg: #e0f0fa;
+        --accent-text: #0093D0;
+        --teal-bg: #e0f0fa;
+        --teal-text: #002F6C;
+        --success-bg: #e6f7ed;
+        --success-text: #0093D0;
         --danger-bg: #fcebeb;
         --danger-text: #a32d2d;
     }
@@ -59,7 +59,7 @@ st.markdown(
     /* Bordered containers (st.container(border=True)) */
     [data-testid="stVerticalBlockBorderWrapper"] {
         background-color: var(--surface-1) !important;
-        border: 2px solid #c5c4bf !important;
+        border: 1.5px solid rgba(0, 47, 108, 0.15) !important;
         border-radius: 12px !important;
     }
 
@@ -88,9 +88,9 @@ st.markdown(
     /* Active/primary filter chip button */
     .stButton > button[kind="primary"],
     .stButton > button[data-testid="stBaseButton-primary"] {
-        background-color: #eaf3de !important;
-        color: #3b6d11 !important;
-        border-color: #3b6d11 !important;
+        background-color: #e0f0fa !important;
+        color: #0093D0 !important;
+        border-color: #0093D0 !important;
     }
 
     /* Metrics */
@@ -103,21 +103,21 @@ st.markdown(
     /* Pills / filter chips - st.pills */
     [data-testid="stPills"] button {
         border-radius: 999px !important;
-        background-color: #f6f5f0 !important;
-        color: #1b1b19 !important;
-        border: 1.5px solid rgba(0,0,0,0.20) !important;
+        background-color: #ffffff !important;
+        color: #002F6C !important;
+        border: 1.5px solid rgba(0,47,108,0.20) !important;
     }
     [data-testid="stPills"] button:hover {
-        background-color: #e6f1fb !important;
-        color: #185fa5 !important;
-        border-color: #185fa5 !important;
+        background-color: #e0f0fa !important;
+        color: #0093D0 !important;
+        border-color: #0093D0 !important;
     }
     [data-testid="stPills"] button[aria-checked="true"],
     [data-testid="stPills"] button[data-selected="true"],
     [data-testid="stPills"] button[aria-pressed="true"] {
-        background-color: #eaf3de !important;
-        color: #3b6d11 !important;
-        border-color: #3b6d11 !important;
+        background-color: #e0f0fa !important;
+        color: #0093D0 !important;
+        border-color: #0093D0 !important;
     }
     [data-testid="stPills"] button span,
     [data-testid="stPills"] button p,
@@ -203,7 +203,7 @@ st.markdown(
     }
     .ta-agent-card:hover {
         border-color: var(--accent-text);
-        box-shadow: 0 4px 16px rgba(24, 95, 165, 0.12);
+        box-shadow: 0 4px 16px rgba(0, 147, 208, 0.15);
         transform: translateY(-2px);
     }
     .ta-card-link {
@@ -225,7 +225,7 @@ st.markdown(
     }
     .ta-agent-card-highlight {
         border-color: var(--accent-text) !important;
-        box-shadow: 0 4px 16px rgba(24, 95, 165, 0.12);
+        box-shadow: 0 4px 16px rgba(0, 147, 208, 0.15);
     }
     .tad-filter-active .ta-agent-card:not(.ta-agent-card-highlight) {
         opacity: 0.4;
@@ -345,8 +345,25 @@ elif screen == "tad":
 elif screen == "agent":
     agent_detail.render()
 
-# Footer
+# Footer (fixed to bottom)
 st.markdown(
-    "<div style='text-align:center;color:#8a8982;font-size:12px;margin-top:48px;padding:16px 0;border-top:1px solid rgba(0,0,0,0.10)'>Developed by ZS Primary Care Team</div>",
+    """
+    <style>
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #718096;
+        font-size: 12px;
+        padding: 10px 0;
+        background-color: #f4f8fb;
+        border-top: 1px solid rgba(0,47,108,0.10);
+        z-index: 999;
+    }
+    </style>
+    <div class="footer">Developed by ZS Primary Care Team</div>
+    """,
     unsafe_allow_html=True,
 )

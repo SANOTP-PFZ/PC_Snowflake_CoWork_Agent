@@ -80,7 +80,7 @@ def render():
                 latest = "—"
                 direction = "up"
 
-            line_color = "#3b6d11" if direction == "up" else "#a32d2d"
+            line_color = "#0093D0" if direction == "up" else "#a32d2d"
 
             svg = _sparkline_svg(values, line_color)
             st.markdown(
@@ -99,7 +99,7 @@ def render():
     # Main heading
     st.markdown("<h1 style='text-align:center;margin-bottom:4px'>Choose an agent category</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='text-align:center;color:#5f5e5a;font-size:15px'>One place to discover and launch your CoCo agents.</p>",
+        "<p style='text-align:center;color:#4a5568;font-size:15px'>One place to discover and launch your agents.</p>",
         unsafe_allow_html=True,
     )
 
