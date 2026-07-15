@@ -56,6 +56,15 @@ st.markdown(
         background-color: transparent !important;
     }
 
+    /* Brand summary box */
+    .brand-summary-box {
+        background: #ffffff;
+        border: 2px solid #0093D0;
+        border-radius: 14px;
+        padding: 20px 24px;
+        margin-bottom: 12px;
+    }
+
     /* Bordered containers (st.container(border=True)) */
     [data-testid="stVerticalBlockBorderWrapper"] {
         background-color: var(--surface-1) !important;

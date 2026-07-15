@@ -67,7 +67,8 @@ def render():
     except Exception:
         df = None
 
-    with st.container(border=True):
+    st.markdown('<div class="brand-summary-box">', unsafe_allow_html=True)
+    with st.container():
         cols = st.columns(5)
         for i, brand in enumerate(BRAND_CONFIG):
             with cols[i]:
@@ -94,6 +95,7 @@ def render():
                     """,
                     unsafe_allow_html=True,
                 )
+    st.markdown('</div>', unsafe_allow_html=True)
 
     st.divider()
 
