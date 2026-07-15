@@ -59,7 +59,7 @@ st.markdown(
     /* Bordered containers (st.container(border=True)) */
     [data-testid="stVerticalBlockBorderWrapper"] {
         background-color: var(--surface-1) !important;
-        border: 1.5px solid rgba(0, 47, 108, 0.15) !important;
+        border: 2px solid #0093D0 !important;
         border-radius: 12px !important;
     }
 
