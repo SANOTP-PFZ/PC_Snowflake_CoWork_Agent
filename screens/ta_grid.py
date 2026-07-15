@@ -7,7 +7,6 @@ from components.cards import render_agent_card
 def render():
     st.markdown("**Home** / Therapy area agents")
     st.markdown("## Therapy area agents")
-    st.caption("6 agents available")
 
     # AI disclaimer
     st.warning(

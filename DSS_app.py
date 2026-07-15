@@ -235,11 +235,14 @@ st.markdown(
         border-radius: 999px;
     }
     .ta-agent-card-highlight {
-        border-color: var(--accent-text) !important;
-        box-shadow: 0 4px 16px rgba(0, 147, 208, 0.15);
+        border-color: #0093D0 !important;
+        background: #e0f0fa !important;
+        box-shadow: 0 6px 20px rgba(0, 147, 208, 0.25);
+        transform: translateY(-3px);
     }
     .tad-filter-active .ta-agent-card:not(.ta-agent-card-highlight) {
-        opacity: 0.4;
+        opacity: 0.35;
+        transform: scale(0.97);
     }
     .agent-card-header {
         display: flex;
