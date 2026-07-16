@@ -14,7 +14,7 @@ def _render_agent_card(agent: dict, highlighted: bool):
             <a href="{url}" target="_blank" class="ta-card-link">
                 <div class="ta-agent-card {highlight_class}">
                     <div class="ta-agent-name">{name}</div>
-                    <div class="ta-launch-text">Launch now ↗</div>
+                    <div class="ta-launch-text">Launch now</div>
                 </div>
             </a>
             """,

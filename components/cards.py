@@ -57,7 +57,7 @@ def render_agent_card(agent: dict, category: str):
                 <a href="{url}" target="_blank" class="ta-card-link">
                     <div class="ta-agent-card">
                         <div class="ta-agent-name">{name}</div>
-                        <div class="ta-launch-text">Launch now ↗</div>
+                        <div class="ta-launch-text">Launch now</div>
                     </div>
                 </a>
                 """,
