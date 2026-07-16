@@ -13,126 +13,120 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* ===== Global palette (Pfizer) ===== */
+    /* ===== Clean & Minimal — Pfizer palette ===== */
     :root {
-        --surface-0: #f4f8fb;
-        --surface-1: #ffffff;
-        --surface-2: #f4f8fb;
-        --text-primary: #002F6C;
-        --text-secondary: #4a5568;
-        --text-muted: #718096;
-        --border: rgba(0, 47, 108, 0.10);
-        --border-strong: rgba(0, 47, 108, 0.20);
-        --accent-bg: #e0f0fa;
-        --accent-text: #0093D0;
-        --teal-bg: #e0f0fa;
-        --teal-text: #002F6C;
-        --success-bg: #e6f7ed;
-        --success-text: #0093D0;
-        --danger-bg: #fcebeb;
-        --danger-text: #a32d2d;
+        --bg: #fafcfe;
+        --surface: #ffffff;
+        --text-1: #1a2b4a;
+        --text-2: #4a5e78;
+        --text-3: #8a9ab5;
+        --border: rgba(0, 47, 108, 0.06);
+        --border-hover: rgba(0, 147, 208, 0.4);
+        --accent: #0093D0;
+        --accent-soft: #eaf6fd;
+        --shadow-sm: 0 1px 3px rgba(0, 47, 108, 0.04);
+        --shadow-md: 0 4px 16px rgba(0, 47, 108, 0.06);
+        --shadow-lg: 0 12px 40px rgba(0, 47, 108, 0.1);
+        --radius: 12px;
+        --radius-lg: 16px;
     }
 
-    /* Hide default Streamlit elements for cleaner look */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    * { transition: all 0.15s ease; }
 
-    /* Force consistent app background */
+    /* Hide Streamlit chrome */
+    #MainMenu, footer, header { visibility: hidden; }
+
+    /* App background */
     .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
-        background-color: var(--surface-0) !important;
+        background-color: var(--bg) !important;
     }
-
     .block-container {
-        max-width: 1100px;
-        padding-top: 1rem;
-        background-color: var(--surface-0) !important;
+        max-width: 1060px;
+        padding-top: 1.5rem;
+        padding-bottom: 4rem;
+        background-color: var(--bg) !important;
     }
 
-    /* Make all Streamlit containers/cards match palette */
+    /* Transparent layout blocks */
     [data-testid="stVerticalBlock"],
     [data-testid="stHorizontalBlock"] {
         background-color: transparent !important;
     }
 
-    /* Brand summary box - individual trend card */
-    .brand-trend-box {
-        background: #ffffff;
-        border: 1px solid rgba(0, 47, 108, 0.12);
-        border-radius: 14px;
-        padding: 16px 18px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .brand-trend-box:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 147, 208, 0.12);
-    }
-
-    /* Bordered containers (st.container(border=True)) */
+    /* Bordered containers */
     [data-testid="stVerticalBlockBorderWrapper"] {
-        background-color: var(--surface-1) !important;
-        border: 1px solid rgba(0, 147, 208, 0.3) !important;
-        border-radius: 14px !important;
+        background-color: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: var(--radius-lg) !important;
+        box-shadow: var(--shadow-sm) !important;
+    }
+    [data-testid="stVerticalBlockBorderWrapper"]:hover {
+        box-shadow: var(--shadow-md) !important;
     }
 
-    /* Buttons */
+    /* ===== Buttons ===== */
     .stButton > button,
     .stLinkButton > a {
-        background-color: var(--surface-1) !important;
-        border: 1px solid var(--border-strong) !important;
-        border-radius: 999px !important;
-        color: var(--text-primary) !important;
-        padding: 3px 12px !important;
+        background: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 8px !important;
+        color: var(--text-2) !important;
+        padding: 6px 14px !important;
         font-size: 12px !important;
+        font-weight: 500 !important;
         min-height: unset !important;
-        line-height: 1.4 !important;
+        line-height: 1.5 !important;
+        box-shadow: var(--shadow-sm) !important;
     }
     .stButton > button:hover,
     .stLinkButton > a:hover {
-        background-color: var(--surface-0) !important;
-        border-color: var(--accent-text) !important;
-        color: var(--accent-text) !important;
+        background: var(--accent-soft) !important;
+        border-color: var(--border-hover) !important;
+        color: var(--accent) !important;
+        box-shadow: var(--shadow-md) !important;
+        transform: translateY(-1px);
     }
     .stLinkButton > a:visited,
     .stLinkButton > a:active {
-        color: var(--text-primary) !important;
+        color: var(--text-2) !important;
     }
-    /* Active/primary filter chip button */
+
+    /* Active filter button */
     .stButton > button[kind="primary"],
     .stButton > button[data-testid="stBaseButton-primary"] {
-        background-color: #e0f0fa !important;
-        color: #0093D0 !important;
-        border-color: #0093D0 !important;
+        background: var(--accent) !important;
+        color: #ffffff !important;
+        border-color: var(--accent) !important;
+        box-shadow: 0 2px 8px rgba(0, 147, 208, 0.3) !important;
     }
 
     /* Metrics */
     [data-testid="stMetric"] {
-        background-color: var(--surface-1);
-        border-radius: 8px;
-        padding: 14px 16px;
+        background-color: var(--surface);
+        border-radius: var(--radius);
+        padding: 16px;
+        box-shadow: var(--shadow-sm);
     }
 
-    /* Pills / filter chips - st.pills */
+    /* Pills */
     [data-testid="stPills"] button {
-        border-radius: 999px !important;
-        background-color: #ffffff !important;
-        color: #002F6C !important;
-        border: 1.5px solid rgba(0,47,108,0.20) !important;
+        border-radius: 8px !important;
+        background-color: var(--surface) !important;
+        color: var(--text-2) !important;
+        border: 1px solid var(--border) !important;
+        box-shadow: var(--shadow-sm) !important;
     }
     [data-testid="stPills"] button:hover {
-        background-color: #e0f0fa !important;
-        color: #0093D0 !important;
-        border-color: #0093D0 !important;
+        background-color: var(--accent-soft) !important;
+        color: var(--accent) !important;
+        border-color: var(--border-hover) !important;
     }
     [data-testid="stPills"] button[aria-checked="true"],
     [data-testid="stPills"] button[data-selected="true"],
     [data-testid="stPills"] button[aria-pressed="true"] {
-        background-color: #e0f0fa !important;
-        color: #0093D0 !important;
-        border-color: #0093D0 !important;
+        background-color: var(--accent) !important;
+        color: #ffffff !important;
+        border-color: var(--accent) !important;
     }
     [data-testid="stPills"] button span,
     [data-testid="stPills"] button p,
@@ -140,150 +134,145 @@ st.markdown(
         color: inherit !important;
     }
 
-
-    /* Header bar */
+    /* ===== Header ===== */
     .hub-header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 20px 28px;
-        border: none;
-        border-radius: 14px;
-        background: var(--surface-1);
-        margin-bottom: 28px;
+        padding: 16px 24px;
+        border-radius: var(--radius-lg);
+        background: var(--surface);
+        margin-bottom: 32px;
         margin-left: -2rem;
         margin-right: -2rem;
-        box-shadow: 0 2px 12px rgba(0, 47, 108, 0.08);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--border);
     }
     .hub-header-left {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 12px;
     }
     .hub-logo {
-        width: 44px;
-        height: 44px;
-        border-radius: 11px;
-        background: var(--accent-bg);
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 22px;
     }
     .hub-title {
-        font-weight: 700;
-        font-size: 20px;
-        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 17px;
+        color: var(--text-1);
         letter-spacing: -0.3px;
     }
     .hub-subtitle {
-        font-size: 13px;
-        color: var(--text-muted);
-        margin-top: 2px;
+        font-size: 12px;
+        color: var(--text-3);
+        margin-top: 1px;
     }
 
-    /* Chips */
+    /* ===== Chips ===== */
     .chip {
-        font-size: 12px;
-        padding: 4px 11px;
-        border-radius: 999px;
+        font-size: 11px;
+        padding: 3px 10px;
+        border-radius: 6px;
         display: inline-flex;
         align-items: center;
-        gap: 5px;
+        gap: 4px;
         font-weight: 500;
     }
-    .chip-blue { background: var(--accent-bg); color: var(--accent-text); }
-    .chip-teal { background: var(--teal-bg); color: var(--teal-text); }
-    .chip-green { background: var(--success-bg); color: var(--success-text); }
-    .chip-red { background: var(--danger-bg); color: var(--danger-text); }
+    .chip-blue { background: var(--accent-soft); color: var(--accent); }
+    .chip-teal { background: var(--accent-soft); color: var(--text-1); }
+    .chip-green { background: #edf9f0; color: #1a8a4a; }
+    .chip-red { background: #fdf0f0; color: #c53030; }
 
-    /* Agent cards */
+    /* ===== Agent Cards ===== */
     .agent-card {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
     .ta-agent-card {
-        background: var(--surface-1);
-        border: 1px solid rgba(0, 47, 108, 0.12);
-        border-radius: 16px;
-        padding: 24px 20px 20px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 28px 20px 22px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        gap: 10px;
-        min-height: 160px;
-        transition: all 0.25s ease;
+        gap: 8px;
+        min-height: 170px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.2s ease;
     }
     .ta-agent-card:hover {
-        border-color: var(--accent-text);
-        box-shadow: 0 8px 24px rgba(0, 147, 208, 0.18);
-        transform: translateY(-4px);
-        background: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%);
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-3px);
     }
     .ta-card-link {
         text-decoration: none;
         display: block;
     }
     .ta-agent-emoji {
-        font-size: 28px;
-        margin-bottom: 2px;
+        font-size: 32px;
+        margin-bottom: 4px;
     }
     .ta-agent-name {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
-        color: var(--text-primary);
+        color: var(--text-1);
+        line-height: 1.3;
     }
     .ta-agent-chip {
-        font-size: 10px;
+        font-size: 9px;
         font-weight: 600;
-        color: var(--accent-text);
-        background: var(--accent-bg);
-        padding: 3px 10px;
-        border-radius: 999px;
-        letter-spacing: 0.3px;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 2px 8px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
     }
     .ta-launch-text {
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 500;
-        color: var(--accent-text);
-        background: var(--accent-bg);
-        padding: 5px 14px;
-        border-radius: 999px;
-        margin-top: 4px;
+        color: var(--accent);
+        margin-top: 6px;
+        opacity: 0.8;
+    }
+    .ta-agent-card:hover .ta-launch-text {
+        opacity: 1;
     }
     .ta-agent-card-highlight {
-        border-color: #0093D0 !important;
-        background: #e0f0fa !important;
-        box-shadow: 0 6px 20px rgba(0, 147, 208, 0.25);
-        transform: translateY(-3px);
+        border-color: var(--accent) !important;
+        background: var(--accent-soft) !important;
+        box-shadow: 0 8px 24px rgba(0, 147, 208, 0.15) !important;
+        transform: translateY(-2px);
     }
     .tad-filter-active .ta-agent-card:not(.ta-agent-card-highlight) {
-        opacity: 0.35;
-        transform: scale(0.97);
+        opacity: 0.3;
+        transform: scale(0.96);
     }
+
     .agent-card-header {
         display: flex;
         align-items: center;
-        gap: 11px;
+        gap: 10px;
     }
     .agent-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 9px;
-        background: var(--accent-bg);
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--accent-soft);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
+        font-size: 16px;
     }
     .agent-name {
         font-weight: 600;
-        font-size: 14px;
-        color: var(--text-primary);
+        font-size: 13px;
+        color: var(--text-1);
     }
     .agent-chips {
         display: flex;
@@ -291,70 +280,50 @@ st.markdown(
         flex-wrap: wrap;
     }
 
-    /* Brand cards */
+    /* ===== Brand trend cards ===== */
+    .brand-trend-box {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.2s ease;
+    }
+    .brand-trend-box:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
     .brand-card {
-        margin-bottom: -10px;
+        margin-bottom: 0;
     }
     .brand-name {
         font-weight: 600;
         font-size: 13px;
-        color: var(--text-primary);
+        color: var(--text-1);
     }
     .brand-category {
         font-size: 11px;
-        color: var(--text-muted);
+        color: var(--text-3);
     }
 
-    /* Stat tiles */
-    .stat-tile {
-        background: var(--surface-1);
-        border-radius: 8px;
-        padding: 14px 16px;
-    }
-    .stat-label {
-        font-size: 13px;
-        color: var(--text-secondary);
-    }
-    .stat-value {
-        font-size: 26px;
-        font-weight: 600;
-        color: var(--text-primary);
-    }
-
-    /* Chat */
-    .chat-container {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        min-height: 200px;
-        margin-bottom: 16px;
-    }
-    .chat-bubble {
-        border-radius: 12px;
-        padding: 11px 15px;
-        font-size: 14px;
-        max-width: 78%;
-    }
-    .chat-bot {
-        align-self: flex-start;
-        background: var(--surface-1);
-        color: var(--text-secondary);
-    }
-    .chat-user {
-        align-self: flex-end;
-        background: var(--accent-bg);
-        color: var(--accent-text);
-    }
-    .chat-ref {
-        color: var(--accent-text);
-    }
-
-    /* Streamlit text colors for consistency */
+    /* ===== Streamlit overrides ===== */
     .stMarkdown, .stText, p, h1, h2, h3, h4 {
-        color: var(--text-primary) !important;
+        color: var(--text-1) !important;
     }
+    h1 { font-weight: 700 !important; letter-spacing: -0.5px !important; }
+    h2 { font-weight: 600 !important; letter-spacing: -0.3px !important; }
     .stCaption, [data-testid="stCaptionContainer"] {
-        color: var(--text-muted) !important;
+        color: var(--text-3) !important;
+    }
+    .stDivider { opacity: 0.4 !important; }
+
+    /* Warning banner */
+    [data-testid="stAlert"] {
+        border-radius: var(--radius) !important;
+        border: 1px solid var(--border) !important;
     }
     </style>
     """,
@@ -390,13 +359,14 @@ st.markdown(
         left: 0;
         width: 100%;
         text-align: center;
-        color: #718096;
+        color: #8a9ab5;
         font-size: 11px;
-        padding: 10px 0;
-        background: rgba(244, 248, 251, 0.85);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-top: 1px solid rgba(0,47,108,0.08);
+        font-weight: 400;
+        padding: 8px 0;
+        background: rgba(250, 252, 254, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(0, 47, 108, 0.04);
         z-index: 999;
     }
     </style>

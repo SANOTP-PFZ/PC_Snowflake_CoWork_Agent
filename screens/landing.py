@@ -95,16 +95,16 @@ def render():
                 unsafe_allow_html=True,
             )
 
-    st.divider()
+    st.markdown("")
 
     # Main heading
-    st.markdown("<h1 style='text-align:center;margin-bottom:4px'>Choose an agent category</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align:center;margin-bottom:2px;font-size:22px'>Choose an agent category</h2>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='text-align:center;color:#4a5568;font-size:15px'>One place to discover and launch your agents.</p>",
+        "<p style='text-align:center;color:#8a9ab5;font-size:14px;margin-bottom:0'>One place to discover and launch your agents.</p>",
         unsafe_allow_html=True,
     )
 
-    st.markdown("<div style='margin-bottom:24px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-bottom:28px'></div>", unsafe_allow_html=True)
 
     # Category cards
     col1, col2 = st.columns(2)
@@ -112,9 +112,10 @@ def render():
         with st.container(border=True):
             st.markdown(
                 """
-                <div style="border-left:4px solid #0093D0;padding-left:12px">
-                    <div style="font-size:18px;font-weight:600">🧬 Therapy area agents</div>
-                    <div style="font-size:13px;color:#4a5568;margin-top:6px">Agents scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
+                <div style="padding:8px 0">
+                    <div style="font-size:24px;margin-bottom:8px">🧬</div>
+                    <div style="font-size:16px;font-weight:600;color:#1a2b4a;margin-bottom:6px">Therapy area agents</div>
+                    <div style="font-size:13px;color:#4a5e78;line-height:1.5">Agents scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -127,9 +128,10 @@ def render():
         with st.container(border=True):
             st.markdown(
                 """
-                <div style="border-left:4px solid #0093D0;padding-left:12px">
-                    <div style="font-size:18px;font-weight:600">📊 Therapy area & Data source agents</div>
-                    <div style="font-size:13px;color:#4a5568;margin-top:6px">Therapy area agents wired to a specific data source for grounded answers.</div>
+                <div style="padding:8px 0">
+                    <div style="font-size:24px;margin-bottom:8px">📊</div>
+                    <div style="font-size:16px;font-weight:600;color:#1a2b4a;margin-bottom:6px">Therapy area & Data source agents</div>
+                    <div style="font-size:13px;color:#4a5e78;line-height:1.5">Therapy area agents wired to a specific data source for grounded answers.</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
