@@ -11,6 +11,12 @@ def render_header():
     except Exception:
         logo_html = ""
 
+    show_home = st.session_state.get("screen", "landing") != "landing"
+
+    home_btn_html = ""
+    if show_home:
+        home_btn_html = '<div class="hub-home-btn" id="hub-home-btn">🏠</div>'
+
     st.markdown(
         f"""
         <div class="hub-header">
@@ -21,7 +27,15 @@ def render_header():
                     <div class="hub-subtitle">Pfizer CoWork · unified agent workspace</div>
                 </div>
             </div>
+            {home_btn_html}
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+    if show_home:
+        col1, col2, col3 = st.columns([8, 1, 1])
+        with col3:
+            if st.button("🏠 Home", key="header_home"):
+                st.session_state["screen"] = "landing"
+                st.rerun()

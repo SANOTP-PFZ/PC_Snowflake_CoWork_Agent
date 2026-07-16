@@ -28,8 +28,4 @@ def render():
                 render_agent_card(agent, "ta")
         st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
-    # Back to home
-    st.divider()
-    if st.button("← Back to Home", key="ta_home"):
-        st.session_state["screen"] = "landing"
-        st.rerun()
+

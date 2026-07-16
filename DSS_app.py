@@ -41,9 +41,11 @@ st.markdown(
         background-color: var(--bg) !important;
     }
     .block-container {
-        max-width: 1060px;
+        max-width: 100%;
         padding-top: 1.5rem;
         padding-bottom: 4rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
         background-color: var(--bg) !important;
     }
 
@@ -139,6 +141,7 @@ st.markdown(
     .hub-header {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         padding: 16px 24px;
         border-radius: var(--radius-lg);
         background: var(--surface);
@@ -152,6 +155,15 @@ st.markdown(
         display: flex;
         align-items: center;
         gap: 12px;
+    }
+    .hub-home-btn {
+        font-size: 22px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.15s;
+    }
+    .hub-home-btn:hover {
+        opacity: 1;
     }
     .hub-logo {
         display: flex;

@@ -14,7 +14,6 @@ def _render_agent_card(agent: dict, highlighted: bool):
             <a href="{url}" target="_blank" class="ta-card-link">
                 <div class="ta-agent-card {highlight_class}">
                     <div class="ta-agent-name">{name}</div>
-                    <div class="ta-launch-text">Launch now</div>
                 </div>
             </a>
             """,
@@ -64,22 +63,16 @@ def render():
                 st.rerun()
 
     shipment_filter = st.session_state["shipment_filter"]
-    filter_active = shipment_filter != "All"
 
-    if filter_active:
-        st.markdown("<div class='tad-filter-active'>", unsafe_allow_html=True)
+    filtered_shipment = [a for a in TAD_SHIPMENT_AGENTS if shipment_filter == "All" or a.get("tag") == shipment_filter]
 
-    rows = [TAD_SHIPMENT_AGENTS[i : i + 3] for i in range(0, len(TAD_SHIPMENT_AGENTS), 3)]
+    rows = [filtered_shipment[i : i + 3] for i in range(0, len(filtered_shipment), 3)]
     for row in rows:
         cols = st.columns(3)
         for i, agent in enumerate(row):
             with cols[i]:
-                highlighted = filter_active and (agent.get("tag") == shipment_filter)
-                _render_agent_card(agent, highlighted)
+                _render_agent_card(agent, False)
         st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
-
-    if filter_active:
-        st.markdown("</div>", unsafe_allow_html=True)
 
     # Admins Data agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
@@ -120,24 +113,20 @@ def render():
     # Agent grid
     admins_source = st.session_state["admins_source_filter"]
     admins_market = st.session_state["admins_market_filter"]
-    admins_filter_active = admins_source != "All" or admins_market != "All"
 
-    if admins_filter_active:
-        st.markdown("<div class='tad-filter-active'>", unsafe_allow_html=True)
+    filtered_admins = [
+        a for a in TAD_ADMINS_AGENTS
+        if (admins_source == "All" or a.get("source") == admins_source)
+        and (admins_market == "All" or a.get("market") == admins_market)
+    ]
 
-    rows = [TAD_ADMINS_AGENTS[i : i + 3] for i in range(0, len(TAD_ADMINS_AGENTS), 3)]
+    rows = [filtered_admins[i : i + 3] for i in range(0, len(filtered_admins), 3)]
     for row in rows:
         cols = st.columns(3)
         for i, agent in enumerate(row):
             with cols[i]:
-                source_match = admins_source == "All" or agent.get("source") == admins_source
-                market_match = admins_market == "All" or agent.get("market") == admins_market
-                highlighted = admins_filter_active and source_match and market_match
-                _render_agent_card(agent, highlighted)
+                _render_agent_card(agent, False)
         st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
-
-    if admins_filter_active:
-        st.markdown("</div>", unsafe_allow_html=True)
 
     from data.agents import TAD_OAC_AGENTS, TAD_MIGRAINE_AGENTS, TAD_NPA_AGENTS, TAD_COPAY_AGENTS
 
@@ -189,8 +178,4 @@ def render():
                 _render_agent_card(agent, False)
         st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
-    # Back to home
-    st.divider()
-    if st.button("← Back to Home", key="tad_home"):
-        st.session_state["screen"] = "landing"
-        st.rerun()
+
