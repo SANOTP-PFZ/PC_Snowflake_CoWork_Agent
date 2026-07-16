@@ -69,14 +69,15 @@ st.markdown(
     .stLinkButton > a {
         background: var(--surface) !important;
         border: 1px solid var(--border) !important;
-        border-radius: 8px !important;
+        border-radius: 999px !important;
         color: var(--text-2) !important;
-        padding: 6px 14px !important;
+        padding: 6px 16px !important;
         font-size: 12px !important;
         font-weight: 500 !important;
         min-height: unset !important;
         line-height: 1.5 !important;
         box-shadow: var(--shadow-sm) !important;
+        white-space: nowrap !important;
     }
     .stButton > button:hover,
     .stLinkButton > a:hover {
@@ -94,10 +95,10 @@ st.markdown(
     /* Active filter button */
     .stButton > button[kind="primary"],
     .stButton > button[data-testid="stBaseButton-primary"] {
-        background: var(--accent) !important;
-        color: #ffffff !important;
-        border-color: var(--accent) !important;
-        box-shadow: 0 2px 8px rgba(0, 147, 208, 0.3) !important;
+        background: var(--accent-soft) !important;
+        color: var(--accent) !important;
+        border-color: rgba(0, 147, 208, 0.3) !important;
+        box-shadow: none !important;
     }
 
     /* Metrics */
