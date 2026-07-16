@@ -31,8 +31,8 @@ def _render_agent_card(agent: dict, highlighted: bool):
 
 
 def render():
-    st.markdown("**Home** / Therapy area & Data source agents")
-    st.markdown("## Therapy area & Data source agents")
+    st.markdown("**Home** / Therapy Area & Data Source")
+    st.markdown("## Therapy Area & Data Source")
     st.markdown(
         "<p style='color:#1a5296;font-size:14px;margin-top:-8px'>Agents wired to a specific data source for grounded, source-level answers — ideal for deep-dives into shipment, claims, or market data.</p>",
         unsafe_allow_html=True,

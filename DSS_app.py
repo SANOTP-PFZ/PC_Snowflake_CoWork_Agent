@@ -103,6 +103,15 @@ st.markdown(
         box-shadow: none !important;
     }
 
+    /* Category card description */
+    .category-desc {
+        font-size: 13px;
+        color: var(--text-3);
+        margin-top: -8px;
+        padding: 0 4px;
+        line-height: 1.5;
+    }
+
     /* Metrics */
     [data-testid="stMetric"] {
         background-color: var(--surface);

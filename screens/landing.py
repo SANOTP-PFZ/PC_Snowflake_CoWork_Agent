@@ -109,33 +109,19 @@ def render():
     # Category cards
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown(
-            """
-            <a href="#" onclick="return false;" class="ta-card-link" id="cat-ta">
-                <div class="ta-agent-card">
-                    <div class="ta-agent-name">Therapy Area</div>
-                    <div style="font-size:13px;color:var(--text-3);margin-top:6px">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
-                </div>
-            </a>
-            """,
-            unsafe_allow_html=True,
-        )
-        if st.button("Open", key="go_ta", use_container_width=True):
+        if st.button("Therapy Area", key="go_ta", use_container_width=True):
             st.session_state["screen"] = "ta"
             st.rerun()
-
-    with col2:
         st.markdown(
-            """
-            <a href="#" onclick="return false;" class="ta-card-link" id="cat-tad">
-                <div class="ta-agent-card">
-                    <div class="ta-agent-name">Therapy Area & Data Source</div>
-                    <div style="font-size:13px;color:var(--text-3);margin-top:6px">Wired to a specific data source for grounded, source-level answers.</div>
-                </div>
-            </a>
-            """,
+            "<p class='category-desc'>Scoped to a single therapy area and all available data sources for domain and data focused questions.</p>",
             unsafe_allow_html=True,
         )
-        if st.button("Open", key="go_tad", use_container_width=True):
+
+    with col2:
+        if st.button("Therapy Area & Data Source", key="go_tad", use_container_width=True):
             st.session_state["screen"] = "tad"
             st.rerun()
+        st.markdown(
+            "<p class='category-desc'>Wired to a specific data source for grounded, source-level answers.</p>",
+            unsafe_allow_html=True,
+        )
