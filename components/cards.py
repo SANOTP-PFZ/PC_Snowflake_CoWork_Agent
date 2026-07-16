@@ -44,60 +44,30 @@ def render_category_card(title: str, description: str, count: int, color_scheme:
         st.session_state["screen"] = key
 
 
+AGENT_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>'
+
+
 def render_agent_card(agent: dict, category: str):
     name = agent["name"]
-    brand = agent["brand"]
-    source = agent.get("source")
+    url = agent.get("url")
+    desc = agent.get("desc", "")
 
-    if category == "ta":
-        url = agent.get("url")
-        if url:
-            st.markdown(
-                f"""
-                <a href="{url}" target="_blank" class="ta-card-link">
-                    <div class="ta-agent-card">
-                        <div class="ta-agent-name">{name}</div>
-                    </div>
-                </a>
-                """,
-                unsafe_allow_html=True,
-            )
-        else:
-            st.markdown(
-                f"""
-                <div class="ta-agent-card">
-                    <div class="ta-agent-name">{name}</div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
-    else:
-        chips_html = f'<span class="chip chip-blue">{brand}</span>'
-        if source:
-            chips_html += f'<span class="chip chip-teal">{source}</span>'
-        chips_html += '<span class="chip chip-green">Active</span>'
+    card_html = f"""
+    <div class="ta-agent-card">
+        <div class="ta-card-icon">{AGENT_ICON_SVG}</div>
+        <div class="ta-card-title">{name}</div>
+        <div class="ta-card-desc">{desc}</div>
+        <div class="ta-card-chip">Cortex Agent</div>
+    </div>
+    """
 
+    if url:
         st.markdown(
-            f"""
-            <div class="agent-card">
-                <div class="agent-card-header">
-                    <div class="agent-icon">🤖</div>
-                    <div class="agent-name">{name}</div>
-                </div>
-                <div class="agent-chips">{chips_html}</div>
-            </div>
-            """,
+            f'<a href="{url}" target="_blank" class="ta-card-link">{card_html}</a>',
             unsafe_allow_html=True,
         )
-    if category != "ta":
-        url = agent.get("url")
-        if url:
-            st.link_button("Launch agent ↗", url, use_container_width=True)
-        else:
-            if st.button("Launch agent", key=f"launch_{category}_{name}", use_container_width=True):
-                st.session_state["screen"] = "agent"
-                st.session_state["current_agent"] = agent
-                st.session_state["agent_category"] = category
+    else:
+        st.markdown(card_html, unsafe_allow_html=True)
 
 
 def render_stat_tile(label: str, value: str):

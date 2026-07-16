@@ -103,33 +103,12 @@ st.markdown(
         box-shadow: none !important;
     }
 
-    /* Category card buttons inside bordered containers */
-    [data-testid="stVerticalBlockBorderWrapper"] .stButton > button {
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        font-size: 17px !important;
-        font-weight: 600 !important;
-        color: var(--text-1) !important;
-        text-align: left !important;
-        justify-content: flex-start !important;
-        padding: 12px 4px 8px !important;
-        min-height: unset !important;
-        white-space: normal !important;
-    }
-    [data-testid="stVerticalBlockBorderWrapper"] .stButton > button:hover {
-        background: transparent !important;
-        color: var(--accent) !important;
-        transform: none !important;
-        box-shadow: none !important;
-    }
-    [data-testid="stVerticalBlockBorderWrapper"] {
-        cursor: pointer;
-        min-height: 140px;
-    }
-    [data-testid="stVerticalBlockBorderWrapper"] [data-testid="stCaptionContainer"] {
-        padding: 0 4px;
+    /* Hidden nav buttons (for category card navigation) */
+    .nav-btn-hidden .stButton {
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
     }
 
     /* Metrics */
@@ -211,31 +190,24 @@ st.markdown(
     .chip-green { background: #edf9f0; color: #1a8a4a; }
     .chip-red { background: #fdf0f0; color: #c53030; }
 
-    /* ===== Agent Cards ===== */
-    .agent-card {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+    /* ===== Agent Cards (wireframe style) ===== */
     .ta-agent-card {
         background: var(--surface);
         border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: 28px 20px 22px;
+        border-radius: var(--radius);
+        padding: 22px 24px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 8px;
-        min-height: 170px;
+        gap: 10px;
+        min-height: 160px;
         box-shadow: var(--shadow-sm);
         transition: all 0.2s ease;
+        text-align: left;
     }
     .ta-agent-card:hover {
         border-color: var(--border-hover);
         box-shadow: var(--shadow-lg);
-        transform: translateY(-3px);
+        transform: translateY(-2px);
     }
     .ta-card-link {
         text-decoration: none !important;
@@ -244,11 +216,48 @@ st.markdown(
     .ta-card-link:hover {
         text-decoration: none !important;
     }
-    .ta-agent-name {
-        font-size: 16px;
+    .ta-card-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: var(--accent-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ta-card-icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--accent);
+    }
+    .ta-card-title {
+        font-size: 15px;
         font-weight: 600;
-        color: var(--text-1);
+        color: var(--text-2);
         line-height: 1.3;
+        margin-top: 4px;
+    }
+    .ta-card-desc {
+        font-size: 13px;
+        color: var(--text-3);
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+    .ta-card-chip {
+        font-size: 11px;
+        color: var(--text-3);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: auto;
+    }
+    .ta-card-chip::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        background: var(--accent);
+        display: inline-block;
     }
     .ta-agent-card-highlight {
         border-color: var(--accent) !important;

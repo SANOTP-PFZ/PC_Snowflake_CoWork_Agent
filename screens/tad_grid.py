@@ -3,31 +3,31 @@ import streamlit as st
 from data.agents import TAD_SHIPMENT_AGENTS, TAD_ADMINS_AGENTS
 
 
+AGENT_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>'
+
+
 def _render_agent_card(agent: dict, highlighted: bool):
     name = agent["name"]
     url = agent.get("url")
+    desc = agent.get("desc", "")
     highlight_class = "ta-agent-card-highlight" if highlighted else ""
+
+    card_html = f"""
+    <div class="ta-agent-card {highlight_class}">
+        <div class="ta-card-icon">{AGENT_ICON_SVG}</div>
+        <div class="ta-card-title">{name}</div>
+        <div class="ta-card-desc">{desc}</div>
+        <div class="ta-card-chip">Cortex Agent</div>
+    </div>
+    """
 
     if url:
         st.markdown(
-            f"""
-            <a href="{url}" target="_blank" class="ta-card-link">
-                <div class="ta-agent-card {highlight_class}">
-                    <div class="ta-agent-name">{name}</div>
-                </div>
-            </a>
-            """,
+            f'<a href="{url}" target="_blank" class="ta-card-link">{card_html}</a>',
             unsafe_allow_html=True,
         )
     else:
-        st.markdown(
-            f"""
-            <div class="ta-agent-card {highlight_class}">
-                <div class="ta-agent-name">{name}</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown(card_html, unsafe_allow_html=True)
 
 
 def render():
