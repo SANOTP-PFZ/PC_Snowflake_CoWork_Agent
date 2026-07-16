@@ -45,5 +45,14 @@ TAD_MIGRAINE_AGENTS = [
     {"name": "Migraine NPA agent", "brand": "OCGRP", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=MIGRAINEDEEPDIVEDUPLICATE&agent=MIGRAINE_NPA_AGENT"},
 ]
 
+TAD_NPA_AGENTS = [
+    {"name": "NPA TRx agent", "brand": "NPA", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USPRIMARYCAREADHOCANALYTICSPARTC&agent=PC_NPA_TRX_ALL_BRANDS"},
+    {"name": "NPA NBRx agent", "brand": "NPA", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USPRIMARYCAREADHOCANALYTICSPARTC&agent=PC_NPA_NBRX_ALL_BRANDS"},
+]
+
+TAD_COPAY_AGENTS = [
+    {"name": "CoPay agent", "brand": "CoPay", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_COPAY_REDEMPTION_AGENT"},
+]
+
 BRAND_FILTERS = ["All", "PCV", "RSV", "FLU", "OAC", "COVID", "OCGRP"]
 SOURCE_FILTERS = ["All sources", "Shipment", "Admins"]
