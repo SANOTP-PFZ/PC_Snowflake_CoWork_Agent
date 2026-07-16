@@ -87,7 +87,7 @@ def render():
     source_options = ["All", "Elaad", "Optum", "Health Verity"]
     src_cols = st.columns([1.5, 1, 1, 1, 1.5, 4])
     with src_cols[0]:
-        st.markdown("<div style='font-size:13px;color:#5f5e5a;padding-top:4px'>Data source</div>", unsafe_allow_html=True)
+        st.markdown("<div style='font-size:12px;font-weight:500;color:var(--text-2);padding-top:6px'>Data source</div>", unsafe_allow_html=True)
     for i, option in enumerate(source_options):
         with src_cols[i + 1]:
             is_active = st.session_state["admins_source_filter"] == option
@@ -103,7 +103,7 @@ def render():
     market_options = ["All", "Rsv", "Pcv", "Covid", "Flu"]
     mkt_cols = st.columns([1.5, 1, 1, 1, 1, 1, 1, 1.5])
     with mkt_cols[0]:
-        st.markdown("<div style='font-size:13px;color:#5f5e5a;padding-top:4px'>Market</div>", unsafe_allow_html=True)
+        st.markdown("<div style='font-size:12px;font-weight:500;color:var(--text-2);padding-top:6px'>Market</div>", unsafe_allow_html=True)
     for i, option in enumerate(market_options):
         with mkt_cols[i + 1]:
             is_active = st.session_state["admins_market_filter"] == option
