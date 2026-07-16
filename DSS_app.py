@@ -103,30 +103,33 @@ st.markdown(
         box-shadow: none !important;
     }
 
-    /* Category card description */
-    .category-desc {
-        font-size: 13px;
-        color: var(--text-3);
-        margin-top: -8px;
-        padding: 0 4px;
-        line-height: 1.5;
-    }
-
     /* Category card buttons inside bordered containers */
     [data-testid="stVerticalBlockBorderWrapper"] .stButton > button {
-        border-radius: var(--radius) !important;
-        font-size: 13px !important;
-        font-weight: 500 !important;
-        padding: 10px 16px !important;
-        margin-top: 8px !important;
-        background: var(--accent) !important;
-        color: #ffffff !important;
+        background: transparent !important;
         border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        font-size: 17px !important;
+        font-weight: 600 !important;
+        color: var(--text-1) !important;
+        text-align: left !important;
+        justify-content: flex-start !important;
+        padding: 12px 4px 8px !important;
+        min-height: unset !important;
+        white-space: normal !important;
     }
     [data-testid="stVerticalBlockBorderWrapper"] .stButton > button:hover {
-        background: var(--text-2) !important;
-        color: #ffffff !important;
-        transform: translateY(-1px);
+        background: transparent !important;
+        color: var(--accent) !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    [data-testid="stVerticalBlockBorderWrapper"] {
+        cursor: pointer;
+        min-height: 140px;
+    }
+    [data-testid="stVerticalBlockBorderWrapper"] [data-testid="stCaptionContainer"] {
+        padding: 0 4px;
     }
 
     /* Metrics */
