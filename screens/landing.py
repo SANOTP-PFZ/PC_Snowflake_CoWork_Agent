@@ -109,17 +109,33 @@ def render():
     # Category cards
     col1, col2 = st.columns(2)
     with col1:
-        with st.container(border=True):
-            st.markdown("<div style='font-size:18px;font-weight:600'>Therapy area agents</div>", unsafe_allow_html=True)
-            st.markdown("Agents scoped to a single therapy area and all available data sources for domain and data focused questions.")
-        if st.button("Therapy area agents", key="go_ta", use_container_width=True, type="secondary"):
+        st.markdown(
+            """
+            <a href="#" onclick="return false;" class="ta-card-link" id="cat-ta">
+                <div class="ta-agent-card">
+                    <div class="ta-agent-name">Therapy Area</div>
+                    <div style="font-size:13px;color:var(--text-3);margin-top:6px">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
+                </div>
+            </a>
+            """,
+            unsafe_allow_html=True,
+        )
+        if st.button("Open", key="go_ta", use_container_width=True):
             st.session_state["screen"] = "ta"
             st.rerun()
 
     with col2:
-        with st.container(border=True):
-            st.markdown("<div style='font-size:18px;font-weight:600'>Therapy area & Data source agents</div>", unsafe_allow_html=True)
-            st.markdown("Therapy area agents wired to a specific data source for grounded answers.")
-        if st.button("Therapy area & Data source agents", key="go_tad", use_container_width=True, type="secondary"):
+        st.markdown(
+            """
+            <a href="#" onclick="return false;" class="ta-card-link" id="cat-tad">
+                <div class="ta-agent-card">
+                    <div class="ta-agent-name">Therapy Area & Data Source</div>
+                    <div style="font-size:13px;color:var(--text-3);margin-top:6px">Wired to a specific data source for grounded, source-level answers.</div>
+                </div>
+            </a>
+            """,
+            unsafe_allow_html=True,
+        )
+        if st.button("Open", key="go_tad", use_container_width=True):
             st.session_state["screen"] = "tad"
             st.rerun()

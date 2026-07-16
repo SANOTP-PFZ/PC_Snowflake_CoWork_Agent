@@ -46,7 +46,7 @@ def render():
     )
 
     # Shipment Data agents section
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Shipment Data agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Shipment Data</div>", unsafe_allow_html=True)
 
     # Filter chips
     if "shipment_filter" not in st.session_state:
@@ -76,13 +76,13 @@ def render():
 
     # Admins Data agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Admins Data agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Admins Data</div>", unsafe_allow_html=True)
 
     # Data source filter
     if "admins_source_filter" not in st.session_state:
         st.session_state["admins_source_filter"] = "All"
 
-    source_options = ["All", "ELAAD", "OPTUM", "HEALTH VERITY"]
+    source_options = ["All", "Elaad", "Optum", "Health Verity"]
     src_cols = st.columns([1.5, 1, 1, 1, 1.5, 4])
     with src_cols[0]:
         st.markdown("<div style='font-size:13px;color:#5f5e5a;padding-top:4px'>Data source</div>", unsafe_allow_html=True)
@@ -98,7 +98,7 @@ def render():
     if "admins_market_filter" not in st.session_state:
         st.session_state["admins_market_filter"] = "All"
 
-    market_options = ["All", "RSV", "PCV", "COVID", "FLU"]
+    market_options = ["All", "Rsv", "Pcv", "Covid", "Flu"]
     mkt_cols = st.columns([1.5, 1, 1, 1, 1, 1, 1, 1.5])
     with mkt_cols[0]:
         st.markdown("<div style='font-size:13px;color:#5f5e5a;padding-top:4px'>Market</div>", unsafe_allow_html=True)
@@ -132,7 +132,7 @@ def render():
 
     # OAC agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>OAC agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>OAC</div>", unsafe_allow_html=True)
 
     rows = [TAD_OAC_AGENTS[i : i + 3] for i in range(0, len(TAD_OAC_AGENTS), 3)]
     for row in rows:
@@ -144,7 +144,7 @@ def render():
 
     # Migraine agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Migraine agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Migraine</div>", unsafe_allow_html=True)
 
     rows = [TAD_MIGRAINE_AGENTS[i : i + 3] for i in range(0, len(TAD_MIGRAINE_AGENTS), 3)]
     for row in rows:
@@ -156,7 +156,7 @@ def render():
 
     # NPA agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>NPA agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>NPA</div>", unsafe_allow_html=True)
 
     rows = [TAD_NPA_AGENTS[i : i + 3] for i in range(0, len(TAD_NPA_AGENTS), 3)]
     for row in rows:
@@ -168,7 +168,7 @@ def render():
 
     # CoPay agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>CoPay agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>CoPay</div>", unsafe_allow_html=True)
 
     rows = [TAD_COPAY_AGENTS[i : i + 3] for i in range(0, len(TAD_COPAY_AGENTS), 3)]
     for row in rows:
