@@ -113,7 +113,7 @@ def render():
     with col1:
         st.markdown(
             f"""
-            <div class="ta-agent-card">
+            <div class="ta-agent-card category-card">
                 <div class="ta-card-icon">{CATEGORY_ICON}</div>
                 <div class="ta-card-title">Therapy Area</div>
                 <div class="ta-card-desc">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
@@ -122,14 +122,14 @@ def render():
             """,
             unsafe_allow_html=True,
         )
-        if st.button("Open →", key="go_ta", use_container_width=True):
+        if st.button("ta", key="go_ta", use_container_width=True):
             st.session_state["screen"] = "ta"
             st.rerun()
 
     with col2:
         st.markdown(
             f"""
-            <div class="ta-agent-card">
+            <div class="ta-agent-card category-card">
                 <div class="ta-card-icon">{CATEGORY_ICON}</div>
                 <div class="ta-card-title">Therapy Area & Data Source</div>
                 <div class="ta-card-desc">Wired to a specific data source for grounded, source-level answers.</div>
@@ -138,6 +138,6 @@ def render():
             """,
             unsafe_allow_html=True,
         )
-        if st.button("Open →", key="go_tad", use_container_width=True):
+        if st.button("tad", key="go_tad", use_container_width=True):
             st.session_state["screen"] = "tad"
             st.rerun()

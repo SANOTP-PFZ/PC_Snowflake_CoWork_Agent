@@ -111,6 +111,19 @@ st.markdown(
         padding: 0;
     }
 
+    /* Category cards — equal height, hide the navigation button below */
+    .category-card {
+        min-height: 200px;
+        cursor: pointer;
+    }
+    /* Target the stElementContainer that contains the button AFTER a category card */
+    [data-testid="stVerticalBlock"]:has(.category-card) > [data-testid="stElementContainer"]:has(.stButton) {
+        height: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
     /* Metrics */
     [data-testid="stMetric"] {
         background-color: var(--surface);
