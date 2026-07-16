@@ -117,6 +117,11 @@ st.markdown(
         height: 200px;
         cursor: pointer;
     }
+    .category-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--border-hover);
+    }
     /* Make the button overlay the card — invisible but clickable */
     [data-testid="stVerticalBlock"]:has(.category-card) > [data-testid="stElementContainer"]:has(.stButton) {
         margin-top: -208px !important;
@@ -187,9 +192,26 @@ st.markdown(
         align-items: center;
         gap: 12px;
     }
-    .hub-logo {
+    .hub-home-link {
         display: flex;
         align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-2);
+        cursor: pointer;
+        padding: 6px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        transition: all 0.15s;
+    }
+    .hub-home-link:hover {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-color: var(--border-hover);
+    }
+    .hub-home-link svg {
+        stroke: currentColor;
     }
     .hub-title {
         font-weight: 600;
