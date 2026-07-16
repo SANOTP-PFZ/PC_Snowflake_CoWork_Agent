@@ -222,7 +222,7 @@ st.markdown(
         margin-bottom: 4px;
     }
     .ta-agent-name {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
         color: var(--text-1);
         line-height: 1.3;
