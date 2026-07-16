@@ -100,7 +100,7 @@ def render():
     # Main heading
     st.markdown("<h1 style='text-align:center;margin-bottom:4px'>Choose an agent category</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='text-align:center;color:#4a5568;font-size:15px'>One place to discover and launch your agents.</p>",
+        "<p style='text-align:center;color:#5a8abf;font-size:15px'>One place to discover and launch your agents.</p>",
         unsafe_allow_html=True,
     )
 

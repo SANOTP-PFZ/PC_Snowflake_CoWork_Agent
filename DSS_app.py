@@ -15,11 +15,11 @@ st.markdown(
     <style>
     /* ===== Clean & Minimal — Pfizer palette ===== */
     :root {
-        --bg: #fafcfe;
+        --bg: #f0f6fc;
         --surface: #ffffff;
-        --text-1: #1a2b4a;
-        --text-2: #4a5e78;
-        --text-3: #8a9ab5;
+        --text-1: #002F6C;
+        --text-2: #1a5296;
+        --text-3: #5a8abf;
         --border: rgba(0, 47, 108, 0.06);
         --border-hover: rgba(0, 147, 208, 0.4);
         --accent: #0093D0;
@@ -367,7 +367,7 @@ st.markdown(
         font-size: 11px;
         font-weight: 400;
         padding: 8px 0;
-        background: rgba(250, 252, 254, 0.9);
+        background: rgba(240, 246, 252, 0.9);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-top: 1px solid rgba(0, 47, 108, 0.04);

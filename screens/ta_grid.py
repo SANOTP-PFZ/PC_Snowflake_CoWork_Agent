@@ -7,6 +7,10 @@ from components.cards import render_agent_card
 def render():
     st.markdown("**Home** / Therapy area agents")
     st.markdown("## Therapy area agents")
+    st.markdown(
+        "<p style='color:#1a5296;font-size:14px;margin-top:-8px'>Ask technical and business questions across all available data sources for your therapy area — powered by Cortex AI.</p>",
+        unsafe_allow_html=True,
+    )
 
     # AI disclaimer
     st.warning(
