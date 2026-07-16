@@ -14,7 +14,7 @@ def render_header():
     show_home = st.session_state.get("screen", "landing") != "landing"
 
     if show_home:
-        header_col, home_col = st.columns([9, 1])
+        header_col, home_col = st.columns([8, 2])
         with header_col:
             st.markdown(
                 f"""
@@ -30,7 +30,7 @@ def render_header():
                 unsafe_allow_html=True,
             )
         with home_col:
-            st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+            st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
             if st.button("⌂ Home", key="header_home"):
                 st.session_state["screen"] = "landing"
                 st.rerun()

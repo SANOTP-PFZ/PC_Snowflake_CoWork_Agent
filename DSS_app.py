@@ -193,7 +193,7 @@ st.markdown(
     }
     .hub-title {
         font-weight: 600;
-        font-size: 17px;
+        font-size: 22px;
         color: var(--text-1);
         letter-spacing: -0.3px;
     }
@@ -222,7 +222,8 @@ st.markdown(
         display: flex;
         flex-direction: column;
         gap: 10px;
-        min-height: 160px;
+        min-height: 180px;
+        height: 180px;
         box-shadow: var(--shadow-sm);
         transition: all 0.2s ease;
         text-align: left;
