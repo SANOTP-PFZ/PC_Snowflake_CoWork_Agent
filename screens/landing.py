@@ -110,16 +110,30 @@ def render():
     col1, col2 = st.columns(2)
     with col1:
         with st.container(border=True):
-            st.markdown("<div style='font-size:18px;font-weight:600'>Therapy area agents</div>", unsafe_allow_html=True)
-            st.markdown("Agents scoped to a single therapy area and all available data sources for domain and data focused questions.")
+            st.markdown(
+                """
+                <div style="border-left:4px solid #0093D0;padding-left:12px">
+                    <div style="font-size:18px;font-weight:600">🧬 Therapy area agents</div>
+                    <div style="font-size:13px;color:#4a5568;margin-top:6px">Agents scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
             if st.button("Explore →", key="go_ta", use_container_width=True):
                 st.session_state["screen"] = "ta"
                 st.rerun()
 
     with col2:
         with st.container(border=True):
-            st.markdown("<div style='font-size:18px;font-weight:600'>Therapy area & Data source agents</div>", unsafe_allow_html=True)
-            st.markdown("Therapy area agents wired to a specific data source for grounded answers.")
+            st.markdown(
+                """
+                <div style="border-left:4px solid #0093D0;padding-left:12px">
+                    <div style="font-size:18px;font-weight:600">📊 Therapy area & Data source agents</div>
+                    <div style="font-size:13px;color:#4a5568;margin-top:6px">Therapy area agents wired to a specific data source for grounded answers.</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
             if st.button("Explore →", key="go_tad", use_container_width=True):
                 st.session_state["screen"] = "tad"
                 st.rerun()

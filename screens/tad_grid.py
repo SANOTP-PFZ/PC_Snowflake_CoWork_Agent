@@ -13,7 +13,9 @@ def _render_agent_card(agent: dict, highlighted: bool):
             f"""
             <a href="{url}" target="_blank" class="ta-card-link">
                 <div class="ta-agent-card {highlight_class}">
+                    <div class="ta-agent-emoji">🤖</div>
                     <div class="ta-agent-name">{name}</div>
+                    <div class="ta-agent-chip">Cortex Agent</div>
                     <div class="ta-launch-text">Launch now ↗</div>
                 </div>
             </a>
@@ -24,7 +26,9 @@ def _render_agent_card(agent: dict, highlighted: bool):
         st.markdown(
             f"""
             <div class="ta-agent-card {highlight_class}">
+                <div class="ta-agent-emoji">🤖</div>
                 <div class="ta-agent-name">{name}</div>
+                <div class="ta-agent-chip">Cortex Agent</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -43,7 +47,7 @@ def render():
     )
 
     # Shipment Data agents section
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Shipment Data agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700;border-left:4px solid #0093D0;padding-left:12px'>📦 Shipment Data agents</div>", unsafe_allow_html=True)
 
     # Filter chips
     if "shipment_filter" not in st.session_state:
@@ -78,7 +82,7 @@ def render():
         st.markdown("</div>", unsafe_allow_html=True)
 
     # Admins Data agents section
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Admins Data agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700;border-left:4px solid #0093D0;padding-left:12px'>🏥 Admins Data agents</div>", unsafe_allow_html=True)
 
     # Data source filter
     if "admins_source_filter" not in st.session_state:
@@ -137,7 +141,7 @@ def render():
     from data.agents import TAD_OAC_AGENTS, TAD_MIGRAINE_AGENTS, TAD_NPA_AGENTS, TAD_COPAY_AGENTS
 
     # OAC agents section
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>OAC agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700;border-left:4px solid #0093D0;padding-left:12px'>💊 OAC agents</div>", unsafe_allow_html=True)
 
     rows = [TAD_OAC_AGENTS[i : i + 3] for i in range(0, len(TAD_OAC_AGENTS), 3)]
     for row in rows:
@@ -148,7 +152,7 @@ def render():
         st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
     # Migraine agents section
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Migraine agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700;border-left:4px solid #0093D0;padding-left:12px'>🧠 Migraine agents</div>", unsafe_allow_html=True)
 
     rows = [TAD_MIGRAINE_AGENTS[i : i + 3] for i in range(0, len(TAD_MIGRAINE_AGENTS), 3)]
     for row in rows:
@@ -159,7 +163,7 @@ def render():
         st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
     # NPA agents section
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>NPA agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700;border-left:4px solid #0093D0;padding-left:12px'>📊 NPA agents</div>", unsafe_allow_html=True)
 
     rows = [TAD_NPA_AGENTS[i : i + 3] for i in range(0, len(TAD_NPA_AGENTS), 3)]
     for row in rows:
@@ -170,7 +174,7 @@ def render():
         st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
     # CoPay agents section
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>CoPay agents</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700;border-left:4px solid #0093D0;padding-left:12px'>💳 CoPay agents</div>", unsafe_allow_html=True)
 
     rows = [TAD_COPAY_AGENTS[i : i + 3] for i in range(0, len(TAD_COPAY_AGENTS), 3)]
     for row in rows:

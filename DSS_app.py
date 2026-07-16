@@ -58,19 +58,24 @@ st.markdown(
     /* Brand summary box - individual trend card */
     .brand-trend-box {
         background: #ffffff;
-        border: 1.5px solid rgba(0, 47, 108, 0.18);
-        border-radius: 12px;
-        padding: 14px 16px;
+        border: 1px solid rgba(0, 47, 108, 0.12);
+        border-radius: 14px;
+        padding: 16px 18px;
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 6px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .brand-trend-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 147, 208, 0.12);
     }
 
     /* Bordered containers (st.container(border=True)) */
     [data-testid="stVerticalBlockBorderWrapper"] {
         background-color: var(--surface-1) !important;
-        border: 2px solid #0093D0 !important;
-        border-radius: 12px !important;
+        border: 1px solid rgba(0, 147, 208, 0.3) !important;
+        border-radius: 14px !important;
     }
 
     /* Buttons */
@@ -142,12 +147,13 @@ st.markdown(
         align-items: center;
         justify-content: space-between;
         padding: 20px 28px;
-        border: 1px solid var(--border);
+        border: none;
         border-radius: 14px;
         background: var(--surface-1);
         margin-bottom: 28px;
         margin-left: -2rem;
         margin-right: -2rem;
+        box-shadow: 0 2px 12px rgba(0, 47, 108, 0.08);
     }
     .hub-header-left {
         display: flex;
@@ -199,31 +205,46 @@ st.markdown(
     }
     .ta-agent-card {
         background: var(--surface-1);
-        border: 1.5px solid var(--border-strong);
+        border: 1px solid rgba(0, 47, 108, 0.12);
         border-radius: 16px;
-        padding: 28px 24px;
+        padding: 24px 20px 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        gap: 14px;
-        min-height: 140px;
-        transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+        gap: 10px;
+        min-height: 160px;
+        transition: all 0.25s ease;
     }
     .ta-agent-card:hover {
         border-color: var(--accent-text);
-        box-shadow: 0 4px 16px rgba(0, 147, 208, 0.15);
-        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 147, 208, 0.18);
+        transform: translateY(-4px);
+        background: linear-gradient(180deg, #ffffff 0%, #f0f8ff 100%);
     }
     .ta-card-link {
         text-decoration: none;
         display: block;
     }
+    .ta-agent-emoji {
+        font-size: 28px;
+        margin-bottom: 2px;
+    }
     .ta-agent-name {
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
         color: var(--text-primary);
+    }
+    .ta-agent-chip {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--accent-text);
+        background: var(--accent-bg);
+        padding: 3px 10px;
+        border-radius: 999px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
     }
     .ta-launch-text {
         font-size: 12px;
@@ -232,6 +253,7 @@ st.markdown(
         background: var(--accent-bg);
         padding: 5px 14px;
         border-radius: 999px;
+        margin-top: 4px;
     }
     .ta-agent-card-highlight {
         border-color: #0093D0 !important;
@@ -369,10 +391,12 @@ st.markdown(
         width: 100%;
         text-align: center;
         color: #718096;
-        font-size: 12px;
+        font-size: 11px;
         padding: 10px 0;
-        background-color: #f4f8fb;
-        border-top: 1px solid rgba(0,47,108,0.10);
+        background: rgba(244, 248, 251, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(0,47,108,0.08);
         z-index: 999;
     }
     </style>

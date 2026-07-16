@@ -56,7 +56,9 @@ def render_agent_card(agent: dict, category: str):
                 f"""
                 <a href="{url}" target="_blank" class="ta-card-link">
                     <div class="ta-agent-card">
+                        <div class="ta-agent-emoji">🤖</div>
                         <div class="ta-agent-name">{name}</div>
+                        <div class="ta-agent-chip">Cortex Agent</div>
                         <div class="ta-launch-text">Launch now ↗</div>
                     </div>
                 </a>
@@ -67,7 +69,9 @@ def render_agent_card(agent: dict, category: str):
             st.markdown(
                 f"""
                 <div class="ta-agent-card">
+                    <div class="ta-agent-emoji">🤖</div>
                     <div class="ta-agent-name">{name}</div>
+                    <div class="ta-agent-chip">Cortex Agent</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
