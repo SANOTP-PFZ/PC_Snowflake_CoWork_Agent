@@ -18,6 +18,8 @@ def render():
         icon="⚠️",
     )
 
+    st.markdown("<div style='margin-top:24px'></div>", unsafe_allow_html=True)
+
     # Agent grid
     rows = [TA_AGENTS[i : i + 3] for i in range(0, len(TA_AGENTS), 3)]
     for row in rows:
