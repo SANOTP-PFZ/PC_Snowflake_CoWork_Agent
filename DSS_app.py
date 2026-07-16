@@ -112,6 +112,23 @@ st.markdown(
         line-height: 1.5;
     }
 
+    /* Category card buttons inside bordered containers */
+    [data-testid="stVerticalBlockBorderWrapper"] .stButton > button {
+        border-radius: var(--radius) !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        padding: 10px 16px !important;
+        margin-top: 8px !important;
+        background: var(--accent) !important;
+        color: #ffffff !important;
+        border: none !important;
+    }
+    [data-testid="stVerticalBlockBorderWrapper"] .stButton > button:hover {
+        background: var(--text-2) !important;
+        color: #ffffff !important;
+        transform: translateY(-1px);
+    }
+
     /* Metrics */
     [data-testid="stMetric"] {
         background-color: var(--surface);
@@ -165,21 +182,6 @@ st.markdown(
         align-items: center;
         gap: 12px;
     }
-    .hub-home-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        cursor: pointer;
-        opacity: 0.6;
-        transition: opacity 0.15s, background 0.15s;
-    }
-    .hub-home-btn:hover {
-        opacity: 1;
-        background: var(--accent-soft);
-    }
     .hub-logo {
         display: flex;
         align-items: center;
@@ -189,11 +191,6 @@ st.markdown(
         font-size: 17px;
         color: var(--text-1);
         letter-spacing: -0.3px;
-    }
-    .hub-subtitle {
-        font-size: 12px;
-        color: var(--text-3);
-        margin-top: 1px;
     }
 
     /* ===== Chips ===== */
@@ -244,45 +241,17 @@ st.markdown(
     .ta-card-link:hover {
         text-decoration: none !important;
     }
-    .ta-agent-emoji {
-        font-size: 32px;
-        margin-bottom: 4px;
-    }
     .ta-agent-name {
         font-size: 16px;
         font-weight: 600;
         color: var(--text-1);
         line-height: 1.3;
     }
-    .ta-agent-chip {
-        font-size: 9px;
-        font-weight: 600;
-        color: var(--accent);
-        background: var(--accent-soft);
-        padding: 2px 8px;
-        border-radius: 4px;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-    }
-    .ta-launch-text {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--accent);
-        margin-top: 6px;
-        opacity: 0.8;
-    }
-    .ta-agent-card:hover .ta-launch-text {
-        opacity: 1;
-    }
     .ta-agent-card-highlight {
         border-color: var(--accent) !important;
         background: var(--accent-soft) !important;
         box-shadow: 0 8px 24px rgba(0, 147, 208, 0.15) !important;
         transform: translateY(-2px);
-    }
-    .tad-filter-active .ta-agent-card:not(.ta-agent-card-highlight) {
-        opacity: 0.3;
-        transform: scale(0.96);
     }
 
     .agent-card-header {

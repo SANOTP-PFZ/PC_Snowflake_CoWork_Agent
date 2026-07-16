@@ -31,13 +31,6 @@ def _render_agent_card(agent: dict, highlighted: bool):
 
 
 def render():
-    col1, col2 = st.columns([1, 9])
-    with col1:
-        if st.button("Home", key="tad_home"):
-            st.session_state["screen"] = "landing"
-            st.rerun()
-    with col2:
-        st.markdown("<span style='color:var(--text-3);font-size:14px;line-height:2.4'>/ Therapy Area & Data Source</span>", unsafe_allow_html=True)
     st.markdown("## Therapy Area & Data Source")
     st.markdown(
         "<p style='color:#1a5296;font-size:14px;margin-top:-8px'>Agents wired to a specific data source for grounded, source-level answers — ideal for deep-dives into shipment, claims, or market data.</p>",
@@ -72,13 +65,16 @@ def render():
 
     filtered_shipment = [a for a in TAD_SHIPMENT_AGENTS if shipment_filter == "All" or a.get("tag") == shipment_filter]
 
-    rows = [filtered_shipment[i : i + 3] for i in range(0, len(filtered_shipment), 3)]
-    for row in rows:
-        cols = st.columns(3)
-        for i, agent in enumerate(row):
-            with cols[i]:
-                _render_agent_card(agent, False)
-        st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
+    if not filtered_shipment:
+        st.caption("No agents match the selected filter.")
+    else:
+        rows = [filtered_shipment[i : i + 3] for i in range(0, len(filtered_shipment), 3)]
+        for row in rows:
+            cols = st.columns(3)
+            for i, agent in enumerate(row):
+                with cols[i]:
+                    _render_agent_card(agent, False)
+            st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
     # Admins Data agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
@@ -126,13 +122,16 @@ def render():
         and (admins_market == "All" or a.get("market") == admins_market)
     ]
 
-    rows = [filtered_admins[i : i + 3] for i in range(0, len(filtered_admins), 3)]
-    for row in rows:
-        cols = st.columns(3)
-        for i, agent in enumerate(row):
-            with cols[i]:
-                _render_agent_card(agent, False)
-        st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
+    if not filtered_admins:
+        st.caption("No agents match the selected filters.")
+    else:
+        rows = [filtered_admins[i : i + 3] for i in range(0, len(filtered_admins), 3)]
+        for row in rows:
+            cols = st.columns(3)
+            for i, agent in enumerate(row):
+                with cols[i]:
+                    _render_agent_card(agent, False)
+            st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
     from data.agents import TAD_OAC_AGENTS, TAD_MIGRAINE_AGENTS, TAD_NPA_AGENTS, TAD_COPAY_AGENTS
 

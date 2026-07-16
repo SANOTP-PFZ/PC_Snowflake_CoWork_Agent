@@ -1,11 +1,3 @@
-BRANDS = [
-    {"name": "Nurtec", "category": "Migraine", "trend": "+6.2%", "direction": "up", "values": [20, 17, 18, 11, 9, 5]},
-    {"name": "Eliquis", "category": "Anticoagulation", "trend": "+2.1%", "direction": "up", "values": [16, 15, 17, 13, 12, 10]},
-    {"name": "Abrysvo", "category": "RSV vaccine", "trend": "-3.4%", "direction": "down", "values": [8, 10, 9, 14, 16, 19]},
-    {"name": "Comirnaty", "category": "COVID-19 vaccine", "trend": "-8.5%", "direction": "down", "values": [6, 9, 12, 14, 18, 22]},
-    {"name": "Prevnar", "category": "Pneumococcal", "trend": "+1.8%", "direction": "up", "values": [18, 16, 17, 14, 13, 11]},
-]
-
 TA_AGENTS = [
     {"name": "Pneumococcal (PCV)", "brand": "PCV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_PCV_VACCINE_AGENT"},
     {"name": "Respiratory Syncytial Virus (RSV)", "brand": "RSV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_RSV_VACCINE_AGENT"},
@@ -58,6 +50,3 @@ TAD_NPA_AGENTS = [
 TAD_COPAY_AGENTS = [
     {"name": "CoPay", "brand": "CoPay", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_COPAY_REDEMPTION_AGENT"},
 ]
-
-BRAND_FILTERS = ["All", "PCV", "RSV", "FLU", "OAC", "COVID", "OCGRP"]
-SOURCE_FILTERS = ["All sources", "Shipment", "Admins"]

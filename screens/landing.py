@@ -110,20 +110,24 @@ def render():
     col1, col2 = st.columns(2)
     with col1:
         with st.container(border=True):
-            if st.button("Therapy Area", key="go_ta", use_container_width=True):
-                st.session_state["screen"] = "ta"
-                st.rerun()
             st.markdown(
-                "<p style='font-size:13px;color:var(--text-3);margin-top:-4px'>Scoped to a single therapy area and all available data sources for domain and data focused questions.</p>",
+                "<div class='ta-agent-name' style='margin-bottom:8px'>Therapy Area</div>"
+                "<div style='font-size:13px;color:var(--text-3);line-height:1.5'>Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>"
+                "<div style='font-size:12px;color:var(--accent);margin-top:10px;font-weight:500'>6 agents available</div>",
                 unsafe_allow_html=True,
             )
+            if st.button("Open Therapy Area", key="go_ta", use_container_width=True):
+                st.session_state["screen"] = "ta"
+                st.rerun()
 
     with col2:
         with st.container(border=True):
-            if st.button("Therapy Area & Data Source", key="go_tad", use_container_width=True):
-                st.session_state["screen"] = "tad"
-                st.rerun()
             st.markdown(
-                "<p style='font-size:13px;color:var(--text-3);margin-top:-4px'>Wired to a specific data source for grounded, source-level answers.</p>",
+                "<div class='ta-agent-name' style='margin-bottom:8px'>Therapy Area & Data Source</div>"
+                "<div style='font-size:13px;color:var(--text-3);line-height:1.5'>Wired to a specific data source for grounded, source-level answers.</div>"
+                "<div style='font-size:12px;color:var(--accent);margin-top:10px;font-weight:500'>26 agents available</div>",
                 unsafe_allow_html=True,
             )
+            if st.button("Open Therapy Area & Data Source", key="go_tad", use_container_width=True):
+                st.session_state["screen"] = "tad"
+                st.rerun()
