@@ -111,7 +111,7 @@ st.markdown(
         padding: 0;
     }
 
-    /* Category cards — equal height, overlay the button on top of the card */
+    /* Category cards — equal height + hover pop effect */
     .category-card {
         min-height: 200px;
         height: 200px;
@@ -122,24 +122,6 @@ st.markdown(
         transform: translateY(-4px) scale(1.02);
         box-shadow: var(--shadow-lg);
         border-color: var(--border-hover);
-    }
-    /* Make the button overlay the card — invisible but clickable */
-    [data-testid="stVerticalBlock"]:has(.category-card) > [data-testid="stElementContainer"]:has(.stButton) {
-        margin-top: -208px !important;
-        position: relative;
-        z-index: 10;
-        pointer-events: none;
-    }
-    [data-testid="stVerticalBlock"]:has(.category-card) .stButton > button {
-        height: 208px !important;
-        opacity: 0 !important;
-        cursor: pointer !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        border-radius: var(--radius) !important;
-        pointer-events: auto !important;
     }
 
     /* Metrics */
@@ -370,9 +352,14 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Initialize session state
+# Initialize session state + handle query params for internal navigation
 if "screen" not in st.session_state:
     st.session_state["screen"] = "landing"
+
+params = st.query_params
+if "screen" in params:
+    st.session_state["screen"] = params["screen"]
+    st.query_params.clear()
 
 # Render header
 render_header()

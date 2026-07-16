@@ -113,31 +113,29 @@ def render():
     with col1:
         st.markdown(
             f"""
-            <div class="ta-agent-card category-card">
-                <div class="ta-card-icon">{CATEGORY_ICON}</div>
-                <div class="ta-card-title">Therapy Area</div>
-                <div class="ta-card-desc">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
-                <div class="ta-card-chip">6 agents</div>
-            </div>
+            <a href="?screen=ta" class="ta-card-link">
+                <div class="ta-agent-card category-card">
+                    <div class="ta-card-icon">{CATEGORY_ICON}</div>
+                    <div class="ta-card-title">Therapy Area</div>
+                    <div class="ta-card-desc">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
+                    <div class="ta-card-chip">6 agents</div>
+                </div>
+            </a>
             """,
             unsafe_allow_html=True,
         )
-        if st.button("ta", key="go_ta", use_container_width=True):
-            st.session_state["screen"] = "ta"
-            st.rerun()
 
     with col2:
         st.markdown(
             f"""
-            <div class="ta-agent-card category-card">
-                <div class="ta-card-icon">{CATEGORY_ICON}</div>
-                <div class="ta-card-title">Therapy Area & Data Source</div>
-                <div class="ta-card-desc">Wired to a specific data source for grounded, source-level answers.</div>
-                <div class="ta-card-chip">26 agents</div>
-            </div>
+            <a href="?screen=tad" class="ta-card-link">
+                <div class="ta-agent-card category-card">
+                    <div class="ta-card-icon">{CATEGORY_ICON}</div>
+                    <div class="ta-card-title">Therapy Area & Data Source</div>
+                    <div class="ta-card-desc">Wired to a specific data source for grounded, source-level answers.</div>
+                    <div class="ta-card-chip">26 agents</div>
+                </div>
+            </a>
             """,
             unsafe_allow_html=True,
         )
-        if st.button("tad", key="go_tad", use_container_width=True):
-            st.session_state["screen"] = "tad"
-            st.rerun()
