@@ -5,7 +5,6 @@ from screens import landing, ta_grid, tad_grid, agent_detail
 
 st.set_page_config(
     page_title="Cortex Agent Hub",
-    page_icon="🤖",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
