@@ -210,8 +210,11 @@ st.markdown(
         transform: translateY(-3px);
     }
     .ta-card-link {
-        text-decoration: none;
+        text-decoration: none !important;
         display: block;
+    }
+    .ta-card-link:hover {
+        text-decoration: none !important;
     }
     .ta-agent-emoji {
         font-size: 32px;
