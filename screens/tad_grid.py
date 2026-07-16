@@ -31,7 +31,13 @@ def _render_agent_card(agent: dict, highlighted: bool):
 
 
 def render():
-    st.markdown("**Home** / Therapy Area & Data Source")
+    col1, col2 = st.columns([1, 9])
+    with col1:
+        if st.button("Home", key="tad_home"):
+            st.session_state["screen"] = "landing"
+            st.rerun()
+    with col2:
+        st.markdown("<span style='color:var(--text-3);font-size:14px;line-height:2.4'>/ Therapy Area & Data Source</span>", unsafe_allow_html=True)
     st.markdown("## Therapy Area & Data Source")
     st.markdown(
         "<p style='color:#1a5296;font-size:14px;margin-top:-8px'>Agents wired to a specific data source for grounded, source-level answers — ideal for deep-dives into shipment, claims, or market data.</p>",
@@ -76,7 +82,7 @@ def render():
 
     # Admins Data agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Admins Data</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Administrations Data</div>", unsafe_allow_html=True)
 
     # Data source filter
     if "admins_source_filter" not in st.session_state:
@@ -132,7 +138,7 @@ def render():
 
     # OAC agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>OAC</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Oral Anticoagulant (OAC)</div>", unsafe_allow_html=True)
 
     rows = [TAD_OAC_AGENTS[i : i + 3] for i in range(0, len(TAD_OAC_AGENTS), 3)]
     for row in rows:
@@ -156,7 +162,7 @@ def render():
 
     # NPA agents section
     st.markdown("<hr style='border:none;border-top:1px solid rgba(0,47,108,0.08);margin:28px 0 8px'>", unsafe_allow_html=True)
-    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>NPA</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>National Prescription Audit (NPA)</div>", unsafe_allow_html=True)
 
     rows = [TAD_NPA_AGENTS[i : i + 3] for i in range(0, len(TAD_NPA_AGENTS), 3)]
     for row in rows:

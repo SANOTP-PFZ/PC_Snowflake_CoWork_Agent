@@ -109,19 +109,21 @@ def render():
     # Category cards
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("Therapy Area", key="go_ta", use_container_width=True):
-            st.session_state["screen"] = "ta"
-            st.rerun()
-        st.markdown(
-            "<p class='category-desc'>Scoped to a single therapy area and all available data sources for domain and data focused questions.</p>",
-            unsafe_allow_html=True,
-        )
+        with st.container(border=True):
+            if st.button("Therapy Area", key="go_ta", use_container_width=True):
+                st.session_state["screen"] = "ta"
+                st.rerun()
+            st.markdown(
+                "<p style='font-size:13px;color:var(--text-3);margin-top:-4px'>Scoped to a single therapy area and all available data sources for domain and data focused questions.</p>",
+                unsafe_allow_html=True,
+            )
 
     with col2:
-        if st.button("Therapy Area & Data Source", key="go_tad", use_container_width=True):
-            st.session_state["screen"] = "tad"
-            st.rerun()
-        st.markdown(
-            "<p class='category-desc'>Wired to a specific data source for grounded, source-level answers.</p>",
-            unsafe_allow_html=True,
-        )
+        with st.container(border=True):
+            if st.button("Therapy Area & Data Source", key="go_tad", use_container_width=True):
+                st.session_state["screen"] = "tad"
+                st.rerun()
+            st.markdown(
+                "<p style='font-size:13px;color:var(--text-3);margin-top:-4px'>Wired to a specific data source for grounded, source-level answers.</p>",
+                unsafe_allow_html=True,
+            )

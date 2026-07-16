@@ -38,8 +38,3 @@ def render_header():
         """,
         unsafe_allow_html=True,
     )
-
-    if show_home:
-        if st.button("← Home", key="header_home"):
-            st.session_state["screen"] = "landing"
-            st.rerun()
