@@ -113,7 +113,7 @@ def render():
     with col1:
         st.markdown(
             f"""
-            <a href="?screen=ta" class="ta-card-link">
+            <a href="?screen=ta" class="ta-card-link" target="_self">
                 <div class="ta-agent-card category-card">
                     <div class="ta-card-icon">{CATEGORY_ICON}</div>
                     <div class="ta-card-title">Therapy Area</div>
@@ -128,7 +128,7 @@ def render():
     with col2:
         st.markdown(
             f"""
-            <a href="?screen=tad" class="ta-card-link">
+            <a href="?screen=tad" class="ta-card-link" target="_self">
                 <div class="ta-agent-card category-card">
                     <div class="ta-card-icon">{CATEGORY_ICON}</div>
                     <div class="ta-card-title">Therapy Area & Data Source</div>
