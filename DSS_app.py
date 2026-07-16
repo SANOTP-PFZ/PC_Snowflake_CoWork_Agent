@@ -111,17 +111,27 @@ st.markdown(
         padding: 0;
     }
 
-    /* Category cards — equal height, hide the navigation button below */
+    /* Category cards — equal height, overlay the button on top of the card */
     .category-card {
         min-height: 200px;
+        height: 200px;
         cursor: pointer;
     }
-    /* Target the stElementContainer that contains the button AFTER a category card */
+    /* Make the button overlay the card — invisible but clickable */
     [data-testid="stVerticalBlock"]:has(.category-card) > [data-testid="stElementContainer"]:has(.stButton) {
-        height: 0 !important;
-        overflow: hidden !important;
-        margin: 0 !important;
+        margin-top: -208px !important;
+        position: relative;
+        z-index: 10;
+    }
+    [data-testid="stVerticalBlock"]:has(.category-card) .stButton > button {
+        height: 208px !important;
+        opacity: 0 !important;
+        cursor: pointer !important;
+        border: none !important;
+        box-shadow: none !important;
         padding: 0 !important;
+        margin: 0 !important;
+        border-radius: var(--radius) !important;
     }
 
     /* Metrics */
