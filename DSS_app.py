@@ -157,13 +157,19 @@ st.markdown(
         gap: 12px;
     }
     .hub-home-btn {
-        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
         cursor: pointer;
-        opacity: 0.7;
-        transition: opacity 0.15s;
+        opacity: 0.6;
+        transition: opacity 0.15s, background 0.15s;
     }
     .hub-home-btn:hover {
         opacity: 1;
+        background: var(--accent-soft);
     }
     .hub-logo {
         display: flex;
