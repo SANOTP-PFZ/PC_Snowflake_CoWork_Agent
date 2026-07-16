@@ -28,21 +28,25 @@ TAD_ADMINS_AGENTS = [
     {"name": "ELAAD RSV agent", "source": "ELAAD", "market": "RSV", "brand": "RSV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/agents/database/VAW_AMER_DESIGN/schema/USIMVACCINESSDL/agent/PC_ELAAD_RSV_VACCINES/details?tab=preview"},
     {"name": "ELAAD FLU agent", "source": "ELAAD", "market": "FLU", "brand": "FLU", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_ELAAD_FLU_VACCINES"},
     {"name": "ELAAD PCV agent", "source": "ELAAD", "market": "PCV", "brand": "PCV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_ELAAD_PCV_VACCINES"},
-    {"name": "ELAAD OAC agent", "source": "ELAAD", "market": "OAC", "brand": "OAC", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_ELAAD_OAC"},
     {"name": "OPTUM COVID agent", "source": "OPTUM", "market": "COVID", "brand": "COVID", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_OPTUM_COVID_VACCINES"},
     {"name": "OPTUM RSV agent", "source": "OPTUM", "market": "RSV", "brand": "RSV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_OPTUM_RSV_VACCINES"},
     {"name": "OPTUM FLU agent", "source": "OPTUM", "market": "FLU", "brand": "FLU", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_OPTUM_FLU_VACCINES"},
     {"name": "OPTUM PCV agent", "source": "OPTUM", "market": "PCV", "brand": "PCV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_OPTUM_PCV_VACCINES"},
-    {"name": "OPTUM OAC agent", "source": "OPTUM", "market": "OAC", "brand": "OAC", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_OPTUM_OAC"},
     {"name": "HEALTH VERITY COVID agent", "source": "HEALTH VERITY", "market": "COVID", "brand": "COVID", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_HV_COVID_VACCINES"},
     {"name": "HEALTH VERITY RSV agent", "source": "HEALTH VERITY", "market": "RSV", "brand": "RSV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_HV_RSV_VACCINES"},
     {"name": "HEALTH VERITY FLU agent", "source": "HEALTH VERITY", "market": "FLU", "brand": "FLU", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_HV_FLU_VACCINES"},
     {"name": "HEALTH VERITY PCV agent", "source": "HEALTH VERITY", "market": "PCV", "brand": "PCV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_HV_PCV_VACCINES"},
 ]
 
+TAD_OAC_AGENTS = [
+    {"name": "ELAAD OAC agent", "brand": "OAC", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_ELAAD_OAC"},
+    {"name": "OPTUM OAC agent", "brand": "OAC", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_OPTUM_OAC"},
+]
+
 TAD_MIGRAINE_AGENTS = [
     {"name": "Migraine LAAD agent", "brand": "OCGRP", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USMIGRAINEIISRPTETL&agent=MIGRAINE_LAAD_W_AGENT"},
     {"name": "Migraine NPA agent", "brand": "OCGRP", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=MIGRAINEDEEPDIVEDUPLICATE&agent=MIGRAINE_NPA_AGENT"},
+    {"name": "Forsyth agent", "brand": "OCGRP", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_FORSYTH_MIGRAINE"},
 ]
 
 TAD_NPA_AGENTS = [

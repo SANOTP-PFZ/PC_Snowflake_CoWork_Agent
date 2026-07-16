@@ -100,7 +100,7 @@ def render():
     if "admins_market_filter" not in st.session_state:
         st.session_state["admins_market_filter"] = "All"
 
-    market_options = ["All", "RSV", "PCV", "COVID", "OAC", "FLU"]
+    market_options = ["All", "RSV", "PCV", "COVID", "FLU"]
     mkt_cols = st.columns([1.5, 1, 1, 1, 1, 1, 1, 1.5])
     with mkt_cols[0]:
         st.markdown("<div style='font-size:13px;color:#5f5e5a;padding-top:4px'>Market</div>", unsafe_allow_html=True)
@@ -134,10 +134,22 @@ def render():
     if admins_filter_active:
         st.markdown("</div>", unsafe_allow_html=True)
 
+    from data.agents import TAD_OAC_AGENTS, TAD_MIGRAINE_AGENTS, TAD_NPA_AGENTS, TAD_COPAY_AGENTS
+
+    # OAC agents section
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>OAC agents</div>", unsafe_allow_html=True)
+
+    rows = [TAD_OAC_AGENTS[i : i + 3] for i in range(0, len(TAD_OAC_AGENTS), 3)]
+    for row in rows:
+        cols = st.columns(3)
+        for i, agent in enumerate(row):
+            with cols[i]:
+                _render_agent_card(agent, False)
+        st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
+
     # Migraine agents section
     st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Migraine agents</div>", unsafe_allow_html=True)
 
-    from data.agents import TAD_MIGRAINE_AGENTS, TAD_NPA_AGENTS, TAD_COPAY_AGENTS
     rows = [TAD_MIGRAINE_AGENTS[i : i + 3] for i in range(0, len(TAD_MIGRAINE_AGENTS), 3)]
     for row in rows:
         cols = st.columns(3)
