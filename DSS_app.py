@@ -372,6 +372,12 @@ st.markdown(
 if "screen" not in st.session_state:
     st.session_state["screen"] = "landing"
 
+# Handle query param navigation (from category card onclick)
+params = st.query_params
+if "screen" in params:
+    st.session_state["screen"] = params["screen"]
+    st.query_params.clear()
+
 # Render header
 render_header()
 

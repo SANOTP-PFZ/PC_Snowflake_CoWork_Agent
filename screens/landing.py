@@ -113,7 +113,10 @@ def render():
     with col1:
         st.markdown(
             f"""
-            <div class="ta-agent-card category-card" onclick="window.location.search='?screen=ta'" style="cursor:pointer">
+            <div class="ta-agent-card category-card"
+                 onclick="window.location.search='?screen=ta'"
+                 onmouseover="this.style.transform='translateY(-4px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(0,47,108,0.12)';this.style.borderColor='rgba(0,147,208,0.4)'"
+                 onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
                 <div class="ta-card-icon">{CATEGORY_ICON}</div>
                 <div class="ta-card-title">Therapy Area</div>
                 <div class="ta-card-desc">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
@@ -129,7 +132,10 @@ def render():
     with col2:
         st.markdown(
             f"""
-            <div class="ta-agent-card category-card" onclick="window.location.search='?screen=tad'" style="cursor:pointer">
+            <div class="ta-agent-card category-card"
+                 onclick="window.location.search='?screen=tad'"
+                 onmouseover="this.style.transform='translateY(-4px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(0,47,108,0.12)';this.style.borderColor='rgba(0,147,208,0.4)'"
+                 onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
                 <div class="ta-card-icon">{CATEGORY_ICON}</div>
                 <div class="ta-card-title">Therapy Area & Data Source</div>
                 <div class="ta-card-desc">Wired to a specific data source for grounded, source-level answers.</div>
