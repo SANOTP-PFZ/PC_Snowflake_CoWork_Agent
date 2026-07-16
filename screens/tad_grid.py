@@ -38,7 +38,7 @@ def render():
     # AI disclaimer
     st.warning(
         "Answers from these agents are produced by AI and may be incomplete or inaccurate. "
-        "Review important outputs against source data before making decisions.",
+        "For complex or business-critical outputs, please verify with the relevant ZS team to validate the underlying logic and code before making decisions.",
         icon="⚠️",
     )
 
@@ -133,6 +133,18 @@ def render():
 
     if admins_filter_active:
         st.markdown("</div>", unsafe_allow_html=True)
+
+    # Migraine agents section
+    st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Migraine agents</div>", unsafe_allow_html=True)
+
+    from data.agents import TAD_MIGRAINE_AGENTS
+    rows = [TAD_MIGRAINE_AGENTS[i : i + 3] for i in range(0, len(TAD_MIGRAINE_AGENTS), 3)]
+    for row in rows:
+        cols = st.columns(3)
+        for i, agent in enumerate(row):
+            with cols[i]:
+                _render_agent_card(agent, False)
+        st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
     # Back to home
     st.divider()

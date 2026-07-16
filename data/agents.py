@@ -40,5 +40,10 @@ TAD_ADMINS_AGENTS = [
     {"name": "HEALTH VERITY PCV agent", "source": "HEALTH VERITY", "market": "PCV", "brand": "PCV", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_HV_PCV_VACCINES"},
 ]
 
+TAD_MIGRAINE_AGENTS = [
+    {"name": "Migraine LAAD agent", "brand": "OCGRP", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USMIGRAINEIISRPTETL&agent=MIGRAINE_LAAD_W_AGENT"},
+    {"name": "Migraine NPA agent", "brand": "OCGRP", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=MIGRAINEDEEPDIVEDUPLICATE&agent=MIGRAINE_NPA_AGENT"},
+]
+
 BRAND_FILTERS = ["All", "PCV", "RSV", "FLU", "OAC", "COVID", "OCGRP"]
 SOURCE_FILTERS = ["All sources", "Shipment", "Admins"]
