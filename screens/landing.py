@@ -94,6 +94,8 @@ def render():
         unsafe_allow_html=True,
     )
     st.caption("QoQ TRX Market Share trends from 2024Q1 onwards")
+    # Bump caption font size
+    st.markdown("<style>[data-testid='stCaptionContainer'] p { font-size: 14px !important; }</style>", unsafe_allow_html=True)
 
     # Load data from Dataiku
     try:
@@ -135,7 +137,7 @@ def render():
     st.markdown(
         """
         <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-radius:12px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);border:1px solid var(--border);margin-bottom:16px">
-            <div style="font-size:13px;color:var(--text-soft)">Deep dive into brand & market analytics with interactive dashboards</div>
+            <div style="font-size:15px;color:var(--text-soft)">Deep dive into brand & market analytics with interactive dashboards</div>
             <a href="https://dss-amer-design.pfizer.com:10000/webapps/USPRIMARYCAREADHOCANALYTICSPARTC/nGjRUYx/"
                target="_blank"
                class="dashboard-pill">
@@ -167,7 +169,7 @@ def render():
             <div class="ta-agent-card category-card"
                  onclick="window.location.search='?screen=ta'">
                 <div class="ta-card-title" style="font-size:18px">Therapy Area</div>
-                <div class="ta-card-desc">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
+                <div class="ta-card-desc" style="font-size:14px">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
                 <div class="ta-card-chip">6 agents</div>
             </div>
             """,
@@ -183,7 +185,7 @@ def render():
             <div class="ta-agent-card category-card"
                  onclick="window.location.search='?screen=tad'">
                 <div class="ta-card-title" style="font-size:18px">Therapy Area & Data Source</div>
-                <div class="ta-card-desc">Wired to a specific data source for grounded, source-level answers.</div>
+                <div class="ta-card-desc" style="font-size:14px">Wired to a specific data source for grounded, source-level answers.</div>
                 <div class="ta-card-chip">26 agents</div>
             </div>
             """,
