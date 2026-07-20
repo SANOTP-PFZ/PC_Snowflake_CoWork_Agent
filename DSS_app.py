@@ -13,32 +13,50 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* ===== Clean & Minimal — Pfizer palette ===== */
+    /* ===== Migraine Hub Inspired — Navy palette ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
     :root {
-        --bg: #f0f6fc;
-        --surface: #ffffff;
-        --text-1: #002F6C;
-        --text-2: #1a5296;
-        --text-3: #5a8abf;
-        --border: rgba(0, 47, 108, 0.06);
-        --border-hover: rgba(0, 147, 208, 0.4);
-        --accent: #0093D0;
-        --accent-soft: #eaf6fd;
-        --shadow-sm: 0 1px 3px rgba(0, 47, 108, 0.04);
-        --shadow-md: 0 4px 16px rgba(0, 47, 108, 0.06);
-        --shadow-lg: 0 12px 40px rgba(0, 47, 108, 0.1);
-        --radius: 12px;
-        --radius-lg: 16px;
+        --bg: #EEF3FB;
+        --bg-2: #E3EBF7;
+        --surface: #FFFFFF;
+        --surface-2: #F8FAFD;
+        --text-1: #0F172A;
+        --text-2: #1C4FC0;
+        --text-3: #64748B;
+        --text-soft: #475569;
+        --border: rgba(15, 23, 42, 0.08);
+        --border-hover: rgba(28, 79, 192, 0.35);
+        --accent: #41B6E6;
+        --accent-soft: rgba(65, 182, 230, 0.10);
+        --navy-700: #163990;
+        --navy-800: #102A5C;
+        --navy-900: #0A1A3D;
+        --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+        --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.04);
+        --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.07), 0 2px 4px rgba(15, 23, 42, 0.04);
+        --shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.10), 0 6px 12px rgba(15, 23, 42, 0.06);
+        --shadow-panel: 0 8px 24px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(15, 23, 42, 0.04);
+        --radius: 14px;
+        --radius-lg: 18px;
+        --ease: cubic-bezier(0.4, 0, 0.2, 1);
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    * { transition: all 0.15s ease; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, .stApp { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: 'Manrope', 'Inter', system-ui, sans-serif; letter-spacing: -0.015em; }
 
     /* Hide Streamlit chrome */
     #MainMenu, footer, header { visibility: hidden; }
 
-    /* App background */
+    /* App background — layered radial gradients */
     .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
-        background-color: var(--bg) !important;
+        background:
+            radial-gradient(ellipse 80% 60% at 0% 0%, rgba(28,79,192,0.06) 0%, transparent 60%),
+            radial-gradient(ellipse 70% 50% at 100% 0%, rgba(65,182,230,0.05) 0%, transparent 55%),
+            radial-gradient(ellipse 60% 50% at 50% 100%, rgba(124,58,237,0.03) 0%, transparent 60%),
+            var(--bg) !important;
     }
     .block-container {
         max-width: 100%;
@@ -46,7 +64,7 @@ st.markdown(
         padding-bottom: 2rem;
         padding-left: 3rem;
         padding-right: 3rem;
-        background-color: var(--bg) !important;
+        background: transparent !important;
     }
 
     /* No-scroll mode for landing and TA pages */
@@ -68,9 +86,11 @@ st.markdown(
         background-color: transparent !important;
     }
 
-    /* Bordered containers */
+    /* Bordered containers — glassmorphism */
     [data-testid="stVerticalBlockBorderWrapper"] {
-        background-color: var(--surface) !important;
+        background: rgba(255, 255, 255, 0.55) !important;
+        backdrop-filter: saturate(180%) blur(14px) !important;
+        -webkit-backdrop-filter: saturate(180%) blur(14px) !important;
         border: 1px solid var(--border) !important;
         border-radius: var(--radius-lg) !important;
         box-shadow: var(--shadow-sm) !important;
@@ -82,24 +102,26 @@ st.markdown(
     /* ===== Buttons ===== */
     .stButton > button,
     .stLinkButton > a {
-        background: var(--surface) !important;
+        background: rgba(255, 255, 255, 0.7) !important;
         border: 1px solid var(--border) !important;
         border-radius: 999px !important;
-        color: var(--text-2) !important;
+        color: var(--text-soft) !important;
         padding: 6px 16px !important;
         font-size: 12px !important;
         font-weight: 500 !important;
         min-height: unset !important;
         line-height: 1.5 !important;
-        box-shadow: var(--shadow-sm) !important;
+        box-shadow: var(--shadow-xs) !important;
         white-space: nowrap !important;
+        font-family: 'Inter', sans-serif !important;
+        transition: all 0.18s var(--ease) !important;
     }
     .stButton > button:hover,
     .stLinkButton > a:hover {
-        background: var(--accent-soft) !important;
+        background: #fff !important;
         border-color: var(--border-hover) !important;
-        color: var(--accent) !important;
-        box-shadow: var(--shadow-md) !important;
+        color: var(--navy-700) !important;
+        box-shadow: var(--shadow-sm) !important;
         transform: translateY(-1px);
     }
     .stLinkButton > a:visited,
@@ -110,9 +132,9 @@ st.markdown(
     /* Active filter button */
     .stButton > button[kind="primary"],
     .stButton > button[data-testid="stBaseButton-primary"] {
-        background: var(--accent-soft) !important;
-        color: var(--accent) !important;
-        border-color: rgba(0, 147, 208, 0.3) !important;
+        background: rgba(28, 79, 192, 0.10) !important;
+        color: var(--navy-700) !important;
+        border-color: rgba(28, 79, 192, 0.25) !important;
         box-shadow: none !important;
     }
 
@@ -129,7 +151,7 @@ st.markdown(
         min-height: 160px;
         height: 160px;
         cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease), border-color 0.18s var(--ease);
     }
     .category-card:hover {
         transform: translateY(-4px) scale(1.02);
@@ -172,22 +194,24 @@ st.markdown(
     /* Pills */
     [data-testid="stPills"] button {
         border-radius: 8px !important;
-        background-color: var(--surface) !important;
-        color: var(--text-2) !important;
+        background: rgba(255, 255, 255, 0.7) !important;
+        color: var(--text-soft) !important;
         border: 1px solid var(--border) !important;
-        box-shadow: var(--shadow-sm) !important;
+        box-shadow: var(--shadow-xs) !important;
+        transition: all 0.18s var(--ease) !important;
     }
     [data-testid="stPills"] button:hover {
-        background-color: var(--accent-soft) !important;
-        color: var(--accent) !important;
+        background: #fff !important;
+        color: var(--navy-700) !important;
         border-color: var(--border-hover) !important;
     }
     [data-testid="stPills"] button[aria-checked="true"],
     [data-testid="stPills"] button[data-selected="true"],
     [data-testid="stPills"] button[aria-pressed="true"] {
-        background-color: var(--accent) !important;
+        background: linear-gradient(90deg, var(--navy-700), var(--accent)) !important;
         color: #ffffff !important;
-        border-color: var(--accent) !important;
+        border-color: transparent !important;
+        box-shadow: 0 2px 8px rgba(22, 57, 144, 0.25) !important;
     }
     [data-testid="stPills"] button span,
     [data-testid="stPills"] button p,
@@ -195,18 +219,20 @@ st.markdown(
         color: inherit !important;
     }
 
-    /* ===== Header ===== */
+    /* ===== Header — Glassmorphism ===== */
     .hub-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 12px 24px;
+        padding: 14px 24px;
         border-radius: var(--radius-lg);
-        background: var(--surface);
+        background: rgba(255, 255, 255, 0.62);
+        backdrop-filter: saturate(180%) blur(22px);
+        -webkit-backdrop-filter: saturate(180%) blur(22px);
         margin-bottom: 16px;
         margin-left: -2rem;
         margin-right: -2rem;
-        box-shadow: var(--shadow-sm);
+        box-shadow: var(--shadow-panel);
         border: 1px solid var(--border);
     }
     .hub-header-left {
@@ -215,10 +241,11 @@ st.markdown(
         gap: 12px;
     }
     .hub-title {
-        font-weight: 600;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
         font-size: 22px;
-        color: var(--text-1);
-        letter-spacing: -0.3px;
+        color: var(--navy-900);
+        letter-spacing: -0.025em;
     }
 
     /* ===== Chips ===== */
@@ -236,8 +263,9 @@ st.markdown(
     .chip-green { background: #edf9f0; color: #1a8a4a; }
     .chip-red { background: #fdf0f0; color: #c53030; }
 
-    /* ===== Agent Cards (wireframe style) ===== */
+    /* ===== Agent Cards — Hub style ===== */
     .ta-agent-card {
+        position: relative;
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: var(--radius);
@@ -250,13 +278,28 @@ st.markdown(
         min-height: 150px;
         height: 150px;
         box-shadow: var(--shadow-sm);
-        transition: all 0.2s ease;
+        transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease);
         text-align: center;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .ta-agent-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(135deg, rgba(255,255,255,0) 55%, rgba(65,182,230,0.05) 80%, rgba(28,79,192,0.07) 100%);
+        opacity: 0;
+        transition: opacity 0.28s var(--ease);
+        pointer-events: none;
     }
     .ta-agent-card:hover {
-        border-color: var(--border-hover);
+        transform: translateY(-3px);
         box-shadow: var(--shadow-lg);
-        transform: translateY(-2px);
+        border-color: var(--border-hover);
+    }
+    .ta-agent-card:hover::after {
+        opacity: 1;
     }
     .ta-card-link {
         text-decoration: none !important;
@@ -280,17 +323,18 @@ st.markdown(
         stroke: var(--accent);
     }
     .ta-card-title {
+        font-family: 'Manrope', sans-serif;
         font-size: 15px;
-        font-weight: 600;
-        color: var(--text-2);
-        line-height: 1.3;
+        font-weight: 700;
+        color: var(--navy-900);
+        line-height: 1.25;
         margin-top: 4px;
         text-align: center;
     }
     .ta-card-desc {
-        font-size: 13px;
+        font-size: 0.8rem;
         color: var(--text-3);
-        line-height: 1.4;
+        line-height: 1.5;
         text-align: center;
     }
     .ta-card-chip {
@@ -311,9 +355,9 @@ st.markdown(
         display: inline-block;
     }
     .ta-agent-card-highlight {
-        border-color: var(--accent) !important;
-        background: var(--accent-soft) !important;
-        box-shadow: 0 8px 24px rgba(0, 147, 208, 0.15) !important;
+        border-color: var(--navy-700) !important;
+        background: rgba(28, 79, 192, 0.06) !important;
+        box-shadow: 0 8px 24px rgba(22, 57, 144, 0.15) !important;
         transform: translateY(-2px);
     }
 
@@ -343,9 +387,11 @@ st.markdown(
         flex-wrap: wrap;
     }
 
-    /* ===== Brand trend cards ===== */
+    /* ===== Brand trend cards — glassmorphism ===== */
     .brand-trend-box {
-        background: var(--surface);
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         border: 1px solid var(--border);
         border-radius: var(--radius);
         padding: 12px 12px;
@@ -353,7 +399,7 @@ st.markdown(
         flex-direction: column;
         gap: 4px;
         box-shadow: var(--shadow-sm);
-        transition: all 0.2s ease;
+        transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease);
     }
     .brand-trend-box:hover {
         transform: translateY(-2px);
@@ -376,12 +422,12 @@ st.markdown(
     .stMarkdown, .stText, p, h1, h2, h3, h4 {
         color: var(--text-1) !important;
     }
-    h1 { font-weight: 700 !important; letter-spacing: -0.5px !important; }
-    h2 { font-weight: 600 !important; letter-spacing: -0.3px !important; }
+    h1 { font-family: 'Manrope', sans-serif !important; font-weight: 800 !important; letter-spacing: -0.025em !important; color: var(--navy-900) !important; }
+    h2 { font-family: 'Manrope', sans-serif !important; font-weight: 700 !important; letter-spacing: -0.02em !important; color: var(--navy-900) !important; }
     .stCaption, [data-testid="stCaptionContainer"] {
         color: var(--text-3) !important;
     }
-    .stDivider { opacity: 0.4 !important; }
+    .stDivider { opacity: 0.3 !important; }
 
     /* Warning banner */
     [data-testid="stAlert"] {
@@ -432,14 +478,14 @@ st.markdown(
         left: 0;
         width: 100%;
         text-align: center;
-        color: #8a9ab5;
+        color: var(--text-3);
         font-size: 11px;
-        font-weight: 400;
+        font-weight: 500;
         padding: 8px 0;
-        background: rgba(240, 246, 252, 0.9);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-top: 1px solid rgba(0, 47, 108, 0.04);
+        background: rgba(238, 243, 251, 0.85);
+        backdrop-filter: saturate(180%) blur(16px);
+        -webkit-backdrop-filter: saturate(180%) blur(16px);
+        border-top: 1px solid var(--border);
         z-index: 999;
     }
     </style>

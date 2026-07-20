@@ -64,19 +64,19 @@ def render():
         .dashboard-pill {
             font-size: 13px;
             font-weight: 500;
-            color: var(--text-2);
-            background: #ffffff;
+            color: var(--text-soft);
+            background: rgba(255, 255, 255, 0.7);
             padding: 7px 18px;
             border-radius: 999px;
             text-decoration: none !important;
             border: 1px solid var(--border);
-            transition: all 0.2s ease;
+            transition: all 0.18s var(--ease);
         }
         .dashboard-pill:hover {
-            background: var(--accent-soft) !important;
-            color: var(--accent) !important;
+            background: #fff !important;
+            color: var(--navy-700) !important;
             border-color: var(--border-hover) !important;
-            box-shadow: 0 4px 16px rgba(0, 147, 208, 0.15);
+            box-shadow: var(--shadow-sm);
             transform: translateY(-1px);
             text-decoration: none !important;
         }
@@ -84,7 +84,7 @@ def render():
         .dashboard-pill:active,
         .dashboard-pill:focus {
             text-decoration: none !important;
-            color: var(--text-2);
+            color: var(--text-soft);
         }
         </style>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
