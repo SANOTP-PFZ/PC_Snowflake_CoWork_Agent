@@ -58,7 +58,19 @@ def _sparkline_svg(values: list, color: str) -> str:
 
 def render():
     # National Brand Summary
-    st.markdown("#### National Brand Summary")
+    st.markdown(
+        """
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+            <h4 style="margin:0">National Brand Summary</h4>
+            <a href="https://dss-amer-design.pfizer.com/projects/USPRIMARYCAREADHOCANALYTICSPARTC/webapps/nGjRUYx_pcearningreportswebapp/view"
+               target="_blank"
+               style="font-size:12px;font-weight:500;color:var(--accent);background:var(--accent-soft);padding:5px 14px;border-radius:999px;text-decoration:none;border:1px solid rgba(0,147,208,0.2)">
+                Open Earnings Report ↗
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
     st.caption("QoQ TRX Market Share trends from 2024Q1 onwards")
 
     # Load data from Dataiku
