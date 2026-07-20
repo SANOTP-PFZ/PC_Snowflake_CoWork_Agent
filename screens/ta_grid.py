@@ -18,7 +18,7 @@ def render():
         icon="⚠️",
     )
 
-    st.markdown("<div style='margin-top:24px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
 
     # Agent grid
     rows = [TA_AGENTS[i : i + 3] for i in range(0, len(TA_AGENTS), 3)]
@@ -27,6 +27,6 @@ def render():
         for i, agent in enumerate(row):
             with cols[i]:
                 render_agent_card(agent, "ta")
-        st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
+        st.markdown("<div style='margin-bottom:12px'></div>", unsafe_allow_html=True)
 
 

@@ -49,6 +49,19 @@ st.markdown(
         background-color: var(--bg) !important;
     }
 
+    /* No-scroll mode for landing and TA pages */
+    .stApp:has(.no-scroll-marker) [data-testid="stMain"] {
+        overflow: hidden !important;
+    }
+    .stApp:has(.no-scroll-marker) [data-testid="stMainBlockContainer"] {
+        overflow: hidden !important;
+        max-height: 100vh !important;
+    }
+    .stApp:has(.no-scroll-marker) .block-container {
+        overflow: hidden !important;
+        padding-bottom: 0 !important;
+    }
+
     /* Transparent layout blocks */
     [data-testid="stVerticalBlock"],
     [data-testid="stHorizontalBlock"] {
@@ -404,6 +417,10 @@ elif screen == "tad":
     tad_grid.render()
 elif screen == "agent":
     agent_detail.render()
+
+# Disable scrolling on landing and TA pages
+if screen in ("landing", "ta"):
+    st.markdown('<div class="no-scroll-marker" style="display:none"></div>', unsafe_allow_html=True)
 
 # Footer (fixed to bottom)
 st.markdown(
