@@ -64,8 +64,8 @@ def render():
             <h4 style="margin:0">National Brand Summary</h4>
             <a href="https://dss-amer-design.pfizer.com/projects/USPRIMARYCAREADHOCANALYTICSPARTC/webapps/nGjRUYx_pcearningreportswebapp/view"
                target="_blank"
-               style="font-size:12px;font-weight:500;color:var(--accent);background:var(--accent-soft);padding:5px 14px;border-radius:999px;text-decoration:none;border:1px solid rgba(0,147,208,0.2)">
-                Open Earnings Report ↗
+               style="font-size:12px;font-weight:500;color:var(--text-2);background:#ffffff;padding:5px 14px;border-radius:999px;text-decoration:none;border:1px solid var(--border)">
+                Primary care Dashboard
             </a>
         </div>
         """,
