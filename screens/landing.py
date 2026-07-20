@@ -64,7 +64,7 @@ def render():
             <h4 style="margin:0">National Brand Summary</h4>
             <a href="https://dss-amer-design.pfizer.com/projects/USPRIMARYCAREADHOCANALYTICSPARTC/webapps/nGjRUYx_pcearningreportswebapp/view"
                target="_blank"
-               style="font-size:12px;font-weight:500;color:var(--text-2);background:#ffffff;padding:5px 14px;border-radius:999px;text-decoration:none;border:1px solid var(--border)">
+               style="font-size:13px;font-weight:500;color:var(--text-2);background:#ffffff;padding:7px 18px;border-radius:999px;text-decoration:none;border:1px solid var(--border)">
                 Primary care Dashboard
             </a>
         </div>
