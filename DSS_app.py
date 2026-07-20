@@ -148,8 +148,8 @@ st.markdown(
 
     /* Category cards — equal height + hover pop effect */
     .category-card {
-        min-height: 160px;
-        height: 160px;
+        min-height: 200px;
+        height: 200px;
         cursor: pointer;
         transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease), border-color 0.18s var(--ease);
     }
@@ -160,13 +160,13 @@ st.markdown(
     }
     /* Invisible button overlay for seamless navigation */
     [data-testid="stColumn"]:has(.category-card) > [data-testid="stVerticalBlock"] > [data-testid="stElementContainer"]:has(.stButton) {
-        margin-top: -168px !important;
+        margin-top: -208px !important;
         position: relative;
         z-index: 10;
         pointer-events: none;
     }
     [data-testid="stColumn"]:has(.category-card) .stButton > button {
-        height: 168px !important;
+        height: 208px !important;
         opacity: 0 !important;
         cursor: pointer !important;
         border: none !important;
@@ -229,7 +229,7 @@ st.markdown(
         background: rgba(255, 255, 255, 0.62);
         backdrop-filter: saturate(180%) blur(22px);
         -webkit-backdrop-filter: saturate(180%) blur(22px);
-        margin-bottom: 16px;
+        margin-bottom: 10px;
         margin-left: -2rem;
         margin-right: -2rem;
         box-shadow: var(--shadow-panel);
@@ -394,10 +394,11 @@ st.markdown(
         -webkit-backdrop-filter: blur(8px);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 12px 12px;
+        padding: 14px 14px;
         display: flex;
         flex-direction: column;
         gap: 4px;
+        min-height: 100px;
         box-shadow: var(--shadow-sm);
         transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease);
     }

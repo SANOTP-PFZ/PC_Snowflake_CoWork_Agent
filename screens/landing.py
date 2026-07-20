@@ -42,14 +42,14 @@ def _sparkline_svg(values: list, color: str) -> str:
     min_val = min(values)
     span = max_val - min_val or 1
     width = 100
-    height = 28
+    height = 40
     step = width / (len(values) - 1)
     points = " ".join(
         f"{i * step:.1f},{height - ((v - min_val) / span) * (height - 4) - 2:.1f}"
         for i, v in enumerate(values)
     )
     return (
-        f'<svg viewBox="0 0 {width} {height}" width="100%" height="32" '
+        f'<svg viewBox="0 0 {width} {height}" width="100%" height="44" '
         f'preserveAspectRatio="none" style="display:block;margin:4px 0">'
         f'<polyline points="{points}" fill="none" stroke="{color}" '
         f'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
@@ -101,7 +101,7 @@ def render():
     except Exception:
         df = None
 
-    st.markdown('<div style="margin-bottom:6px"></div>', unsafe_allow_html=True)
+    st.markdown('<div style="margin-bottom:2px"></div>', unsafe_allow_html=True)
     cols = st.columns(5)
     for i, brand in enumerate(BRAND_CONFIG):
         with cols[i]:
@@ -129,12 +129,12 @@ def render():
                 unsafe_allow_html=True,
             )
 
-    st.markdown("<div style='margin-top:8px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:4px'></div>", unsafe_allow_html=True)
 
     # Dashboard navigation banner
     st.markdown(
         """
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);border:1px solid var(--border);margin-bottom:24px">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-radius:12px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);border:1px solid var(--border);margin-bottom:16px">
             <div style="font-size:13px;color:var(--text-soft)">Deep dive into brand & market analytics with interactive dashboards</div>
             <a href="https://dss-amer-design.pfizer.com:10000/webapps/USPRIMARYCAREADHOCANALYTICSPARTC/nGjRUYx/"
                target="_blank"
@@ -153,7 +153,7 @@ def render():
         unsafe_allow_html=True,
     )
 
-    st.markdown("<div style='margin-bottom:12px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-bottom:4px'></div>", unsafe_allow_html=True)
 
     # Category cards
     CATEGORY_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>'
