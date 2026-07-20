@@ -39,7 +39,9 @@ def render():
 
     # Flowchart image
     img_dir = Path(__file__).parent.parent
-    st.image(str(img_dir / "consolidated_pharma_flow_with_sources.png"), use_container_width=True)
+    col_l, col_img, col_r = st.columns([1, 3, 1])
+    with col_img:
+        st.image(str(img_dir / "consolidated_pharma_flow_with_sources.png"), use_container_width=True)
 
     # AI disclaimer
     st.warning(
