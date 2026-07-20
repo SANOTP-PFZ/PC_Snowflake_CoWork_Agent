@@ -42,8 +42,10 @@ def render():
     col_img1, col_img2 = st.columns(2)
     with col_img1:
         st.image(str(img_dir / "shipment_flow.png"), use_container_width=True)
+        st.markdown("<p style='text-align:center;font-size:13px;font-weight:600;color:var(--text-2);margin-top:4px'>Shipment Flow</p>", unsafe_allow_html=True)
     with col_img2:
         st.image(str(img_dir / "supply_chain.png"), use_container_width=True)
+        st.markdown("<p style='text-align:center;font-size:13px;font-weight:600;color:var(--text-2);margin-top:4px'>Supply Chain</p>", unsafe_allow_html=True)
 
     # AI disclaimer
     st.warning(
