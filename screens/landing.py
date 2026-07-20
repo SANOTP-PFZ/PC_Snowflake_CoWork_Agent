@@ -87,12 +87,13 @@ def render():
             color: var(--text-soft);
         }
         </style>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0px">
             <h4 style="margin:0">National Brand Summary</h4>
         </div>
         """,
         unsafe_allow_html=True,
     )
+    st.markdown("<div style='margin-top:-8px'></div>", unsafe_allow_html=True)
     st.caption("QoQ TRX Market Share trends from 2024Q1 onwards")
     # Bump caption font size
     st.markdown("<style>[data-testid='stCaptionContainer'] p { font-size: 14px !important; }</style>", unsafe_allow_html=True)
@@ -103,7 +104,7 @@ def render():
     except Exception:
         df = None
 
-    st.markdown('<div style="margin-bottom:2px"></div>', unsafe_allow_html=True)
+    st.markdown('<div style="margin-bottom:10px"></div>', unsafe_allow_html=True)
     cols = st.columns(5)
     for i, brand in enumerate(BRAND_CONFIG):
         with cols[i]:
