@@ -134,7 +134,7 @@ def render():
     # Dashboard navigation banner
     st.markdown(
         """
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);border:1px solid var(--border);margin-bottom:12px">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);border:1px solid var(--border);margin-bottom:20px">
             <div style="font-size:13px;color:var(--text-soft)">Deep dive into brand & market analytics with interactive dashboards</div>
             <a href="https://dss-amer-design.pfizer.com/projects/USPRIMARYCAREADHOCANALYTICSPARTC/webapps/nGjRUYx_pcearningreportswebapp/view"
                target="_blank"
