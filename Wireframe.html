@@ -22,8 +22,9 @@
   --bg-danger:#fcebeb; --text-danger:#a32d2d;
 }
 *{box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
 body{margin:0;background:var(--surface-0);font-family:"Segoe UI",Helvetica,Arial,sans-serif;color:var(--text-primary);-webkit-font-smoothing:antialiased}
-.app{max-width:1040px;margin:0 auto;padding:24px}
+.app{max-width:1040px;margin:0 auto;padding:24px;height:100%;display:flex;flex-direction:column;overflow:hidden}
 h1{font-size:26px;font-weight:600;margin:0}
 h2{font-size:20px;font-weight:600;margin:0}
 .chip{font-size:12px;padding:4px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:5px;font-weight:500}
@@ -31,17 +32,17 @@ h2{font-size:20px;font-weight:600;margin:0}
 .acard:hover{border-color:var(--border-strong)}
 .bcard{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px 13px;display:flex;flex-direction:column;gap:7px}
 .crumb{color:var(--text-secondary)}
-.scr{display:none}.scr.on{display:block}
+.scr{display:none}.scr.on{display:flex;flex-direction:column;flex:1;overflow:hidden}
 button{font-family:inherit;font-size:13px;background:var(--surface-2);border:1px solid var(--border-strong);border-radius:var(--radius);padding:8px 12px;cursor:pointer;color:var(--text-primary)}
 button:hover{background:var(--surface-1)}
 .searchbar{display:flex;align-items:center;gap:8px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:8px 13px;color:var(--text-muted);font-size:13px}
-.tile{background:var(--surface-1);border-radius:8px;padding:14px 16px}
+.tile{background:var(--surface-1);border-radius:8px;padding:12px 16px}
 </style>
 </head>
 <body>
 <div class="app">
 
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border:1px solid var(--border);border-radius:12px;background:var(--surface-2);margin-bottom:22px">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border:1px solid var(--border);border-radius:12px;background:var(--surface-2);margin-bottom:14px;flex-shrink:0">
     <div style="display:flex;align-items:center;gap:11px">
       <div style="width:34px;height:34px;border-radius:9px;background:var(--bg-accent);display:flex;align-items:center;justify-content:center;color:var(--text-accent)"><i class="ti ti-cpu" style="font-size:20px"></i></div>
       <div style="line-height:1.25">
@@ -58,32 +59,32 @@ button:hover{background:var(--surface-1)}
 
   <!-- LANDING -->
   <div id="s-landing" class="scr on">
-    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px">
       <h2 style="font-size:18px;font-weight:600;margin:0">Brand performance across markets</h2>
       <span style="font-size:12px;color:var(--text-muted)">Placeholder — connect to live market data</span>
     </div>
-    <div id="brand-strip" style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:28px"></div>
-    <div style="text-align:center;margin:6px 0 26px">
-      <h1 style="margin-bottom:8px">Choose an agent category</h1>
+    <div id="brand-strip" style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px"></div>
+    <div style="text-align:center;margin:4px 0 12px">
+      <h1 style="margin-bottom:4px">Choose an agent category</h1>
       <p style="color:var(--text-secondary);margin:0;font-size:15px">One place to discover and launch every Cortex agent your team has built.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-      <div class="acard" onclick="go('ta')" style="cursor:pointer;padding:24px;gap:15px">
-        <div style="width:48px;height:48px;border-radius:11px;background:var(--bg-accent);display:flex;align-items:center;justify-content:center;color:var(--text-accent)"><i class="ti ti-stethoscope" style="font-size:26px"></i></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;min-height:0">
+      <div class="acard" onclick="go('ta')" style="cursor:pointer;padding:18px;gap:12px">
+        <div style="width:42px;height:42px;border-radius:11px;background:var(--bg-accent);display:flex;align-items:center;justify-content:center;color:var(--text-accent)"><i class="ti ti-stethoscope" style="font-size:24px"></i></div>
         <div>
-          <div style="font-weight:600;font-size:18px;margin-bottom:5px">Therapy area agents</div>
-          <div style="font-size:14px;color:var(--text-secondary);line-height:1.55">Agents scoped to a single therapy area for domain-focused questions.</div>
+          <div style="font-weight:600;font-size:16px;margin-bottom:4px">Therapy area agents</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Agents scoped to a single therapy area for domain-focused questions.</div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:2px">
           <span class="chip" style="background:var(--bg-accent);color:var(--text-accent)">6 agents</span>
           <span style="color:var(--text-accent);font-size:14px;display:flex;align-items:center;gap:5px;font-weight:500">Explore <i class="ti ti-arrow-right" style="font-size:16px"></i></span>
         </div>
       </div>
-      <div class="acard" onclick="go('tad')" style="cursor:pointer;padding:24px;gap:15px">
-        <div style="width:48px;height:48px;border-radius:11px;background:var(--bg-teal);display:flex;align-items:center;justify-content:center;color:var(--text-teal)"><i class="ti ti-database" style="font-size:26px"></i></div>
+      <div class="acard" onclick="go('tad')" style="cursor:pointer;padding:18px;gap:12px">
+        <div style="width:42px;height:42px;border-radius:11px;background:var(--bg-teal);display:flex;align-items:center;justify-content:center;color:var(--text-teal)"><i class="ti ti-database" style="font-size:24px"></i></div>
         <div>
-          <div style="font-weight:600;font-size:18px;margin-bottom:5px">TA + data source agents</div>
-          <div style="font-size:14px;color:var(--text-secondary);line-height:1.55">Therapy area agents wired to a specific data source for grounded answers.</div>
+          <div style="font-weight:600;font-size:16px;margin-bottom:4px">TA + data source agents</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.5">Therapy area agents wired to a specific data source for grounded answers.</div>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:2px">
           <span class="chip" style="background:var(--bg-teal);color:var(--text-teal)">9 agents</span>
@@ -91,7 +92,7 @@ button:hover{background:var(--surface-1)}
         </div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;flex-shrink:0">
       <div class="tile"><div style="font-size:13px;color:var(--text-secondary)">Total agents</div><div style="font-size:26px;font-weight:600">15</div></div>
       <div class="tile"><div style="font-size:13px;color:var(--text-secondary)">Therapy areas</div><div style="font-size:26px;font-weight:600">7</div></div>
       <div class="tile"><div style="font-size:13px;color:var(--text-secondary)">Data sources</div><div style="font-size:26px;font-weight:600">4</div></div>
