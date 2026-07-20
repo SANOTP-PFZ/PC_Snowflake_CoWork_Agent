@@ -42,8 +42,8 @@ st.markdown(
     }
     .block-container {
         max-width: 100%;
-        padding-top: 1.5rem;
-        padding-bottom: 4rem;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
         padding-left: 3rem;
         padding-right: 3rem;
         background-color: var(--bg) !important;
@@ -126,8 +126,8 @@ st.markdown(
 
     /* Category cards — equal height + hover pop effect */
     .category-card {
-        min-height: 200px;
-        height: 200px;
+        min-height: 160px;
+        height: 160px;
         cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
@@ -138,13 +138,13 @@ st.markdown(
     }
     /* Invisible button overlay for seamless navigation */
     [data-testid="stColumn"]:has(.category-card) > [data-testid="stVerticalBlock"] > [data-testid="stElementContainer"]:has(.stButton) {
-        margin-top: -208px !important;
+        margin-top: -168px !important;
         position: relative;
         z-index: 10;
         pointer-events: none;
     }
     [data-testid="stColumn"]:has(.category-card) .stButton > button {
-        height: 208px !important;
+        height: 168px !important;
         opacity: 0 !important;
         cursor: pointer !important;
         border: none !important;
@@ -200,10 +200,10 @@ st.markdown(
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 16px 24px;
+        padding: 12px 24px;
         border-radius: var(--radius-lg);
         background: var(--surface);
-        margin-bottom: 32px;
+        margin-bottom: 16px;
         margin-left: -2rem;
         margin-right: -2rem;
         box-shadow: var(--shadow-sm);
@@ -241,14 +241,14 @@ st.markdown(
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 22px 24px;
+        padding: 18px 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        min-height: 180px;
-        height: 180px;
+        gap: 8px;
+        min-height: 150px;
+        height: 150px;
         box-shadow: var(--shadow-sm);
         transition: all 0.2s ease;
         text-align: center;
@@ -348,10 +348,10 @@ st.markdown(
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 16px 14px;
+        padding: 12px 12px;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 4px;
         box-shadow: var(--shadow-sm);
         transition: all 0.2s ease;
     }
