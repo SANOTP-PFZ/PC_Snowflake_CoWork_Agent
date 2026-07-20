@@ -154,7 +154,7 @@ def render():
             f"""
             <div class="ta-agent-card category-card"
                  onclick="window.location.search='?screen=ta'">
-                <div class="ta-card-title">Therapy Area</div>
+                <div class="ta-card-title" style="font-size:18px">Therapy Area</div>
                 <div class="ta-card-desc">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
                 <div class="ta-card-chip">6 agents</div>
             </div>
@@ -170,7 +170,7 @@ def render():
             f"""
             <div class="ta-agent-card category-card"
                  onclick="window.location.search='?screen=tad'">
-                <div class="ta-card-title">Therapy Area & Data Source</div>
+                <div class="ta-card-title" style="font-size:18px">Therapy Area & Data Source</div>
                 <div class="ta-card-desc">Wired to a specific data source for grounded, source-level answers.</div>
                 <div class="ta-card-chip">26 agents</div>
             </div>
