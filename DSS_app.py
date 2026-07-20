@@ -128,6 +128,7 @@ st.markdown(
         margin-top: -208px !important;
         position: relative;
         z-index: 10;
+        pointer-events: none;
     }
     [data-testid="stVerticalBlock"]:has(.category-card) .stButton > button {
         height: 208px !important;
@@ -138,6 +139,14 @@ st.markdown(
         padding: 0 !important;
         margin: 0 !important;
         border-radius: var(--radius) !important;
+        pointer-events: auto;
+    }
+    /* Pop effect when hovering the overlay button */
+    [data-testid="stVerticalBlock"]:has(.category-card) .stButton > button:hover ~ .category-card,
+    [data-testid="stVerticalBlock"]:has(.category-card):hover .category-card {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--border-hover);
     }
 
     /* Metrics */

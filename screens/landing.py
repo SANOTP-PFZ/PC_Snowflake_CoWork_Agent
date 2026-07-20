@@ -68,16 +68,23 @@ def render():
             background: #ffffff;
             padding: 7px 18px;
             border-radius: 999px;
-            text-decoration: none;
+            text-decoration: none !important;
             border: 1px solid var(--border);
             transition: all 0.2s ease;
         }
         .dashboard-pill:hover {
-            background: var(--accent) !important;
-            color: #ffffff !important;
-            border-color: var(--accent) !important;
-            box-shadow: 0 4px 16px rgba(0, 147, 208, 0.3);
-            transform: translateY(-2px);
+            background: var(--accent-soft) !important;
+            color: var(--accent) !important;
+            border-color: var(--border-hover) !important;
+            box-shadow: 0 4px 16px rgba(0, 147, 208, 0.15);
+            transform: translateY(-1px);
+            text-decoration: none !important;
+        }
+        .dashboard-pill:visited,
+        .dashboard-pill:active,
+        .dashboard-pill:focus {
+            text-decoration: none !important;
+            color: var(--text-2);
         }
         </style>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
@@ -146,9 +153,7 @@ def render():
         st.markdown(
             f"""
             <div class="ta-agent-card category-card"
-                 onclick="window.location.search='?screen=ta'"
-                 onmouseover="this.style.transform='translateY(-4px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(0,47,108,0.12)';this.style.borderColor='rgba(0,147,208,0.4)'"
-                 onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
+                 onclick="window.location.search='?screen=ta'">
                 <div class="ta-card-title">Therapy Area</div>
                 <div class="ta-card-desc">Scoped to a single therapy area and all available data sources for domain and data focused questions.</div>
                 <div class="ta-card-chip">6 agents</div>
@@ -164,9 +169,7 @@ def render():
         st.markdown(
             f"""
             <div class="ta-agent-card category-card"
-                 onclick="window.location.search='?screen=tad'"
-                 onmouseover="this.style.transform='translateY(-4px) scale(1.02)';this.style.boxShadow='0 12px 40px rgba(0,47,108,0.12)';this.style.borderColor='rgba(0,147,208,0.4)'"
-                 onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor=''">
+                 onclick="window.location.search='?screen=tad'">
                 <div class="ta-card-title">Therapy Area & Data Source</div>
                 <div class="ta-card-desc">Wired to a specific data source for grounded, source-level answers.</div>
                 <div class="ta-card-chip">26 agents</div>
