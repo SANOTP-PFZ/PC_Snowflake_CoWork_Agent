@@ -14,10 +14,8 @@ def _render_agent_card(agent: dict, highlighted: bool):
 
     card_html = f"""
     <div class="ta-agent-card {highlight_class}">
-        <div class="ta-card-icon">{AGENT_ICON_SVG}</div>
         <div class="ta-card-title">{name}</div>
         <div class="ta-card-desc">{desc}</div>
-        <div class="ta-card-chip">Cortex Agent</div>
     </div>
     """
 
