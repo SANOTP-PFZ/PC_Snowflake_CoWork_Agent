@@ -60,11 +60,31 @@ def render():
     # National Brand Summary
     st.markdown(
         """
+        <style>
+        .dashboard-pill {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-2);
+            background: #ffffff;
+            padding: 7px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+        .dashboard-pill:hover {
+            background: var(--accent) !important;
+            color: #ffffff !important;
+            border-color: var(--accent) !important;
+            box-shadow: 0 4px 16px rgba(0, 147, 208, 0.3);
+            transform: translateY(-2px);
+        }
+        </style>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
             <h4 style="margin:0">National Brand Summary</h4>
             <a href="https://dss-amer-design.pfizer.com/projects/USPRIMARYCAREADHOCANALYTICSPARTC/webapps/nGjRUYx_pcearningreportswebapp/view"
                target="_blank"
-               style="font-size:13px;font-weight:500;color:var(--text-2);background:#ffffff;padding:7px 18px;border-radius:999px;text-decoration:none;border:1px solid var(--border)">
+               class="dashboard-pill">
                 Primary care Dashboard
             </a>
         </div>
