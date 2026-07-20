@@ -89,11 +89,6 @@ def render():
         </style>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
             <h4 style="margin:0">National Brand Summary</h4>
-            <a href="https://dss-amer-design.pfizer.com/projects/USPRIMARYCAREADHOCANALYTICSPARTC/webapps/nGjRUYx_pcearningreportswebapp/view"
-               target="_blank"
-               class="dashboard-pill">
-                Primary Care Dashboard
-            </a>
         </div>
         """,
         unsafe_allow_html=True,
@@ -135,6 +130,21 @@ def render():
             )
 
     st.divider()
+
+    # Dashboard navigation banner
+    st.markdown(
+        """
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);border:1px solid var(--border);margin-bottom:12px">
+            <div style="font-size:13px;color:var(--text-soft)">Deep dive into brand & market analytics with interactive dashboards</div>
+            <a href="https://dss-amer-design.pfizer.com/projects/USPRIMARYCAREADHOCANALYTICSPARTC/webapps/nGjRUYx_pcearningreportswebapp/view"
+               target="_blank"
+               class="dashboard-pill">
+                Primary Care Dashboard
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     # Main heading
     st.markdown("<h1 style='text-align:center;margin-bottom:4px;font-size:26px'>Choose an agent category</h1>", unsafe_allow_html=True)
