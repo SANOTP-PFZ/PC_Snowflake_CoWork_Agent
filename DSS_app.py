@@ -224,6 +224,7 @@ st.markdown(
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 10px;
         min-height: 180px;
         height: 180px;
@@ -269,7 +270,6 @@ st.markdown(
         font-size: 13px;
         color: var(--text-3);
         line-height: 1.4;
-        flex-grow: 1;
         text-align: center;
     }
     .ta-card-chip {
