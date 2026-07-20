@@ -146,7 +146,7 @@ def render():
         unsafe_allow_html=True,
     )
 
-    st.markdown("<hr style='border:none;border-top:1px solid rgba(15,23,42,0.08);margin:12px 0 12px'>", unsafe_allow_html=True)
+    st.markdown("<hr style='border:none;border-top:1px solid rgba(15,23,42,0.08);margin:15px 0 15px'>", unsafe_allow_html=True)
 
     # Main heading
     st.markdown("<h1 style='text-align:center;margin-bottom:0px;font-size:26px'>Choose an agent category</h1>", unsafe_allow_html=True)
