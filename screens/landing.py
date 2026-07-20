@@ -137,7 +137,6 @@ def render():
     st.divider()
 
     # Main heading
-    st.markdown("<div style='margin-top:16px'></div>", unsafe_allow_html=True)
     st.markdown("<h1 style='text-align:center;margin-bottom:4px;font-size:26px'>Choose an agent category</h1>", unsafe_allow_html=True)
     st.markdown(
         "<p style='text-align:center;color:#5a8abf;font-size:15px;margin-bottom:0'>One place to discover and launch your agents.</p>",

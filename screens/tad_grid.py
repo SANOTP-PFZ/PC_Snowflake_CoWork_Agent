@@ -1,4 +1,6 @@
 import streamlit as st
+import base64
+from pathlib import Path
 
 from data.agents import TAD_SHIPMENT_AGENTS, TAD_ADMINS_AGENTS
 
@@ -41,6 +43,14 @@ def render():
         "For complex or business-critical outputs, please verify with the relevant ZS team to validate the underlying logic and code before making decisions.",
         icon="⚠️",
     )
+
+    # Flowchart images
+    img_dir = Path(__file__).parent.parent
+    col_img1, col_img2 = st.columns(2)
+    with col_img1:
+        st.image(str(img_dir / "shipment_flow.png"), use_container_width=True)
+    with col_img2:
+        st.image(str(img_dir / "supply_chain.png"), use_container_width=True)
 
     # Shipment Data agents section
     st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Shipment Data</div>", unsafe_allow_html=True)
