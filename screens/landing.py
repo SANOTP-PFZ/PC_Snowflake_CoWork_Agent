@@ -137,13 +137,13 @@ def render():
     st.divider()
 
     # Main heading
-    st.markdown("<h1 style='text-align:center;margin-bottom:2px;font-size:22px'>Choose an agent category</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align:center;margin-bottom:4px;font-size:26px'>Choose an agent category</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='text-align:center;color:#5a8abf;font-size:14px;margin-bottom:0'>One place to discover and launch your agents.</p>",
+        "<p style='text-align:center;color:#5a8abf;font-size:15px;margin-bottom:0'>One place to discover and launch your agents.</p>",
         unsafe_allow_html=True,
     )
 
-    st.markdown("<div style='margin-bottom:12px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-bottom:20px'></div>", unsafe_allow_html=True)
 
     # Category cards
     CATEGORY_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>'
