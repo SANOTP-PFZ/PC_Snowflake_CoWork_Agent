@@ -82,32 +82,32 @@ def render():
     if "admins_source_filter" not in st.session_state:
         st.session_state["admins_source_filter"] = "All"
 
-    source_options = ["All", "Elaad", "Optum", "Health Verity"]
-    src_cols = st.columns([1.5, 1, 1, 1, 1, 4.5])
+    source_options = [("All", "All"), ("eLAAD", "Elaad"), ("Optum", "Optum"), ("Health Verity", "Health Verity")]
+    src_cols = st.columns([1.5, 1, 1, 1, 1.5, 4])
     with src_cols[0]:
-        st.markdown("<div style='font-size:12px;font-weight:500;color:var(--text-2);padding-top:6px'>Data source</div>", unsafe_allow_html=True)
-    for i, option in enumerate(source_options):
+        st.markdown("<div style='font-size:14px;font-weight:600;color:var(--text-2);padding-top:6px'>Data source</div>", unsafe_allow_html=True)
+    for i, (label, value) in enumerate(source_options):
         with src_cols[i + 1]:
-            is_active = st.session_state["admins_source_filter"] == option
+            is_active = st.session_state["admins_source_filter"] == value
             btn_type = "primary" if is_active else "secondary"
-            if st.button(option, key=f"adm_src_{option}", use_container_width=True, type=btn_type):
-                st.session_state["admins_source_filter"] = option
+            if st.button(label, key=f"adm_src_{value}", use_container_width=True, type=btn_type):
+                st.session_state["admins_source_filter"] = value
                 st.rerun()
 
     # Market filter
     if "admins_market_filter" not in st.session_state:
         st.session_state["admins_market_filter"] = "All"
 
-    market_options = ["All", "Rsv", "Pcv", "Covid", "Flu"]
+    market_options = [("All", "All"), ("RSV", "Rsv"), ("PCV", "Pcv"), ("COVID", "Covid"), ("Flu", "Flu")]
     mkt_cols = st.columns([1.5, 1, 1, 1, 1, 1, 3.5])
     with mkt_cols[0]:
-        st.markdown("<div style='font-size:12px;font-weight:500;color:var(--text-2);padding-top:6px'>Market</div>", unsafe_allow_html=True)
-    for i, option in enumerate(market_options):
+        st.markdown("<div style='font-size:14px;font-weight:600;color:var(--text-2);padding-top:6px'>Market</div>", unsafe_allow_html=True)
+    for i, (label, value) in enumerate(market_options):
         with mkt_cols[i + 1]:
-            is_active = st.session_state["admins_market_filter"] == option
+            is_active = st.session_state["admins_market_filter"] == value
             btn_type = "primary" if is_active else "secondary"
-            if st.button(option, key=f"adm_mkt_{option}", use_container_width=True, type=btn_type):
-                st.session_state["admins_market_filter"] = option
+            if st.button(label, key=f"adm_mkt_{value}", use_container_width=True, type=btn_type):
+                st.session_state["admins_market_filter"] = value
                 st.rerun()
 
     # Agent grid
