@@ -48,5 +48,5 @@ TAD_NPA_AGENTS = [
 ]
 
 TAD_COPAY_AGENTS = [
-    {"name": "CoPay", "brand": "CoPay", "desc": "Copay redemption transaction data analytics and program performance insights across brands.", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_COPAY_REDEMPTION_AGENT"},
+    {"name": "CoPay", "brand": "CoPay", "desc": "Pfizer claim-level copay and voucher program data — brand, prescriber, pharmacy, and patient-cost detail for every claim that redeemed a Pfizer copay card or voucher, plus program activation records.", "url": "https://app.us-east-1.privatelink.snowflakecomputing.com/pfe/amerprod01/#/ai/chat/new?db=VAW_AMER_DESIGN&schema=USIMVACCINESSDL&agent=PC_COPAY_REDEMPTION_AGENT"},
 ]

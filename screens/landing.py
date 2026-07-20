@@ -129,7 +129,7 @@ def render():
                 unsafe_allow_html=True,
             )
 
-    st.markdown("<hr style='border:none;border-top:1px solid var(--border);margin:8px 0'>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:8px'></div>", unsafe_allow_html=True)
 
     # Dashboard navigation banner
     st.markdown(
