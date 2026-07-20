@@ -229,7 +229,7 @@ st.markdown(
         background: rgba(255, 255, 255, 0.62);
         backdrop-filter: saturate(180%) blur(22px);
         -webkit-backdrop-filter: saturate(180%) blur(22px);
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         margin-left: -2rem;
         margin-right: -2rem;
         box-shadow: var(--shadow-panel);
