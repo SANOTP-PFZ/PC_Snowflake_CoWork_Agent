@@ -223,12 +223,13 @@ st.markdown(
         padding: 22px 24px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 10px;
         min-height: 180px;
         height: 180px;
         box-shadow: var(--shadow-sm);
         transition: all 0.2s ease;
-        text-align: left;
+        text-align: center;
     }
     .ta-agent-card:hover {
         border-color: var(--border-hover);
@@ -262,18 +263,21 @@ st.markdown(
         color: var(--text-2);
         line-height: 1.3;
         margin-top: 4px;
+        text-align: center;
     }
     .ta-card-desc {
         font-size: 13px;
         color: var(--text-3);
         line-height: 1.4;
         flex-grow: 1;
+        text-align: center;
     }
     .ta-card-chip {
         font-size: 11px;
         color: var(--text-3);
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 6px;
         margin-top: auto;
     }
