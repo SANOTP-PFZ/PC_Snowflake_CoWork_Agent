@@ -92,7 +92,7 @@ def render():
             <a href="https://dss-amer-design.pfizer.com/projects/USPRIMARYCAREADHOCANALYTICSPARTC/webapps/nGjRUYx_pcearningreportswebapp/view"
                target="_blank"
                class="dashboard-pill">
-                Primary care Dashboard
+                Primary Care Dashboard
             </a>
         </div>
         """,
