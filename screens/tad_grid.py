@@ -37,13 +37,6 @@ def render():
         unsafe_allow_html=True,
     )
 
-    # AI disclaimer
-    st.warning(
-        "Answers from these agents are produced by AI and may be incomplete or inaccurate. "
-        "For complex or business-critical outputs, please verify with the relevant ZS team to validate the underlying logic and code before making decisions.",
-        icon="⚠️",
-    )
-
     # Flowchart images
     img_dir = Path(__file__).parent.parent
     col_img1, col_img2 = st.columns(2)
@@ -51,6 +44,13 @@ def render():
         st.image(str(img_dir / "shipment_flow.png"), use_container_width=True)
     with col_img2:
         st.image(str(img_dir / "supply_chain.png"), use_container_width=True)
+
+    # AI disclaimer
+    st.warning(
+        "Answers from these agents are produced by AI and may be incomplete or inaccurate. "
+        "For complex or business-critical outputs, please verify with the relevant ZS team to validate the underlying logic and code before making decisions.",
+        icon="⚠️",
+    )
 
     # Shipment Data agents section
     st.markdown("<div style='margin-top:24px;margin-bottom:12px;font-size:18px;font-weight:700'>Shipment Data</div>", unsafe_allow_html=True)
