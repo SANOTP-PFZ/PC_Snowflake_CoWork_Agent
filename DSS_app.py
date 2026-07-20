@@ -124,13 +124,13 @@ st.markdown(
         border-color: var(--border-hover);
     }
     /* Invisible button overlay for seamless navigation */
-    [data-testid="stVerticalBlock"]:has(.category-card) > [data-testid="stElementContainer"]:has(.stButton) {
+    [data-testid="stColumn"]:has(.category-card) > [data-testid="stVerticalBlock"] > [data-testid="stElementContainer"]:has(.stButton) {
         margin-top: -208px !important;
         position: relative;
         z-index: 10;
         pointer-events: none;
     }
-    [data-testid="stVerticalBlock"]:has(.category-card) .stButton > button {
+    [data-testid="stColumn"]:has(.category-card) .stButton > button {
         height: 208px !important;
         opacity: 0 !important;
         cursor: pointer !important;
@@ -141,9 +141,8 @@ st.markdown(
         border-radius: var(--radius) !important;
         pointer-events: auto;
     }
-    /* Pop effect when hovering the overlay button */
-    [data-testid="stVerticalBlock"]:has(.category-card) .stButton > button:hover ~ .category-card,
-    [data-testid="stVerticalBlock"]:has(.category-card):hover .category-card {
+    /* Pop effect scoped to individual column hover */
+    [data-testid="stColumn"]:has(.category-card):hover .category-card {
         transform: translateY(-4px) scale(1.02);
         box-shadow: var(--shadow-lg);
         border-color: var(--border-hover);
