@@ -97,7 +97,7 @@ def render():
         """<style>
         /* Reduce gap between National Brand Summary and caption */
         [data-testid="stCaptionContainer"] {
-            margin-top: -12px !important;
+            margin-top: -16px !important;
         }
         </style>""",
         unsafe_allow_html=True,
