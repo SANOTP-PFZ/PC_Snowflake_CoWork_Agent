@@ -37,8 +37,8 @@ def render():
         unsafe_allow_html=True,
     )
 
-    # Flowchart - interactive HTML
-    html_path = Path(__file__).parent.parent / "supply-chain-horizontal.html"
+    # Flowchart - static HTML from supply-chain-updated.html
+    html_path = Path(__file__).parent.parent / "supply-chain-updated.html"
     html_content = html_path.read_text(encoding="utf-8")
     # Make background transparent so it blends with app
     html_content = html_content.replace(
@@ -58,15 +58,15 @@ def render():
         "padding:28px 18px 40px;",
         "padding:4px 0 6px;",
     )
-    # Remove animated particles script
+    # Remove animated particles
     html_content = html_content.replace(
         '<g id="particles"></g>',
         '',
     )
-    # Remove the entire <script>...</script> block
+    # Remove the entire <script>...</script> block to make it static
     import re
     html_content = re.sub(r'<script>.*?</script>', '', html_content, flags=re.DOTALL)
-    # Wrap the .wrap div in a white container and reduce max-width for minimal end space
+    # Wrap the .wrap div in a white container with minimal end space
     html_content = html_content.replace(
         '.wrap{max-width:1240px;margin:0 auto}',
         '.wrap{max-width:100%;margin:0 auto;background:#fff;border-radius:12px;padding:6px 16px 14px;border:1px solid #e3e8f2;box-shadow:0 2px 8px rgba(15,23,42,0.05)}',
@@ -75,6 +75,11 @@ def render():
     html_content = html_content.replace(
         '.scroller{width:100%;overflow-x:auto;margin:10px 0 0;padding-bottom:6px;',
         '.scroller{width:100%;overflow-x:auto;margin:0;padding-bottom:6px;',
+    )
+    # Center the legend
+    html_content = html_content.replace(
+        '.legend{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:12px 2px 0;font-size:12.5px;color:var(--ink-2)}',
+        '.legend{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center;margin:12px 2px 0;font-size:12.5px;color:var(--ink-2)}',
     )
     import streamlit.components.v1 as components
     components.html(html_content, height=290, scrolling=False)
