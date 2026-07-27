@@ -40,46 +40,47 @@ def render():
     # Flowchart - static HTML from supply-chain-updated.html
     html_path = Path(__file__).parent.parent / "supply-chain-updated.html"
     html_content = html_path.read_text(encoding="utf-8")
-    # Make background transparent so it blends with app
-    html_content = html_content.replace(
-        "background:linear-gradient(160deg,var(--bg-a),var(--bg-b));",
-        "background:transparent;",
-    )
-    # Remove the header (title + description)
-    html_content = html_content.replace(
-        '<header class="head">\n'
-        '    <h1>Pharmaceutical supply chain</h1>\n'
-        '    <p>The whole system as one horizontal pipeline: medicine moves right along the chain, money flows back left, and rebates close the loop to the manufacturer.</p>\n'
-        '  </header>',
-        '',
-    )
-    # Reduce top padding since header is gone
-    html_content = html_content.replace(
-        "padding:28px 18px 40px;",
-        "padding:4px 0 6px;",
-    )
-    # Remove animated particles
-    html_content = html_content.replace(
-        '<g id="particles"></g>',
-        '',
-    )
-    # Remove the entire <script>...</script> block to make it static
     import re
-    html_content = re.sub(r'<script>.*?</script>', '', html_content, flags=re.DOTALL)
-    # Wrap the .wrap div in a white container with minimal end space
-    html_content = html_content.replace(
-        '.wrap{max-width:1240px;margin:0 auto}',
-        '.wrap{max-width:100%;margin:0 auto;background:#fff;border-radius:12px;padding:6px 16px 14px;border:1px solid #e3e8f2;box-shadow:0 2px 8px rgba(15,23,42,0.05)}',
+    # Make background transparent
+    html_content = re.sub(
+        r'background:\s*linear-gradient\(160deg,var\(--bg-a\),var\(--bg-b\)\);',
+        'background:transparent;',
+        html_content,
     )
-    # Remove top margin on scroller to eliminate whitespace above SVG
-    html_content = html_content.replace(
-        '.scroller{width:100%;overflow-x:auto;margin:10px 0 0;padding-bottom:6px;',
-        '.scroller{width:100%;overflow-x:auto;margin:0;padding-bottom:6px;',
+    # Remove the header block
+    html_content = re.sub(
+        r'<header class="head">.*?</header>',
+        '',
+        html_content,
+        flags=re.DOTALL,
+    )
+    # Reduce body padding
+    html_content = re.sub(
+        r'padding:\s*28px\s+18px\s+40px;',
+        'padding:4px 0 6px;',
+        html_content,
+    )
+    # Remove animated particles group
+    html_content = re.sub(r'<g id="particles"></g>', '', html_content)
+    # Remove the entire script block to make it static
+    html_content = re.sub(r'<script>.*?</script>', '', html_content, flags=re.DOTALL)
+    # White container with minimal end space
+    html_content = re.sub(
+        r'\.wrap\{max-width:1240px;margin:0 auto\}',
+        '.wrap{max-width:100%;margin:0 auto;background:#fff;border-radius:12px;padding:6px 16px 14px;border:1px solid #e3e8f2;box-shadow:0 2px 8px rgba(15,23,42,0.05)}',
+        html_content,
+    )
+    # Remove top margin on scroller
+    html_content = re.sub(
+        r'\.scroller\{width:100%;overflow-x:auto;margin:10px 0 0;',
+        '.scroller{width:100%;overflow-x:auto;margin:0;',
+        html_content,
     )
     # Center the legend
-    html_content = html_content.replace(
-        '.legend{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:12px 2px 0;font-size:12.5px;color:var(--ink-2)}',
-        '.legend{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center;margin:12px 2px 0;font-size:12.5px;color:var(--ink-2)}',
+    html_content = re.sub(
+        r'\.legend\{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:12px 2px 0;',
+        '.legend{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:center;margin:12px 2px 0;',
+        html_content,
     )
     import streamlit.components.v1 as components
     components.html(html_content, height=290, scrolling=False)
