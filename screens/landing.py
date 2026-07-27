@@ -119,23 +119,18 @@ def render():
             values = _get_brand_trend(df, brand["brand_db"], "TRX MARKET SHARE") if df is not None else None
 
             if values and len(values) >= 2:
-                latest = f"{values[-1]:.1f}%"
                 direction = "up" if values[-1] >= values[0] else "down"
             else:
                 values = [50, 50, 50, 50]
-                latest = "—"
                 direction = "up"
 
             line_color = "#0093D0" if direction == "up" else "#a32d2d"
-            arrow = "▲" if direction == "up" else "▼"
-            arrow_color = "#0093D0" if direction == "up" else "#a32d2d"
 
             svg = _sparkline_svg(values, line_color)
             st.markdown(
                 f"""
                 <div class="brand-trend-box">
                     <div class="brand-name">{brand['name']}</div>
-                    <div class="brand-category">TRX {latest} <span style="color:{arrow_color};font-size:11px;font-weight:600">{arrow}</span></div>
                     {svg}
                 </div>
                 """,
