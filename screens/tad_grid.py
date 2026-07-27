@@ -45,8 +45,21 @@ def render():
         "background:linear-gradient(160deg,var(--bg-a),var(--bg-b));",
         "background:transparent;",
     )
+    # Remove the header (title + description)
+    html_content = html_content.replace(
+        '<header class="head">\n'
+        '    <h1>Pharmaceutical supply chain</h1>\n'
+        '    <p>The whole system as one horizontal pipeline: medicine moves right along the chain, money flows back left, and rebates close the loop to the manufacturer.</p>\n'
+        '  </header>',
+        '',
+    )
+    # Reduce top padding since header is gone
+    html_content = html_content.replace(
+        "padding:28px 18px 40px;",
+        "padding:8px 18px 10px;",
+    )
     import streamlit.components.v1 as components
-    components.html(html_content, height=280, scrolling=False)
+    components.html(html_content, height=260, scrolling=False)
 
     # AI disclaimer
     st.warning(
