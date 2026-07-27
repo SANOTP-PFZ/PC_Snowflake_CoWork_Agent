@@ -59,7 +59,7 @@ def render():
         "padding:8px 18px 10px;",
     )
     import streamlit.components.v1 as components
-    components.html(html_content, height=260, scrolling=False)
+    components.html(html_content, height=310, scrolling=False)
 
     # AI disclaimer
     st.warning(
