@@ -37,11 +37,16 @@ def render():
         unsafe_allow_html=True,
     )
 
-    # Flowchart image
-    img_dir = Path(__file__).parent.parent
-    col_l, col_img, col_r = st.columns([1, 3, 1])
-    with col_img:
-        st.image(str(img_dir / "consolidated_pharma_flow_with_sources.png"), use_container_width=True)
+    # Flowchart - interactive HTML
+    html_path = Path(__file__).parent.parent / "supply-chain-horizontal.html"
+    html_content = html_path.read_text(encoding="utf-8")
+    # Make background transparent so it blends with app
+    html_content = html_content.replace(
+        "background:linear-gradient(160deg,var(--bg-a),var(--bg-b));",
+        "background:transparent;",
+    )
+    import streamlit.components.v1 as components
+    components.html(html_content, height=280, scrolling=False)
 
     # AI disclaimer
     st.warning(
