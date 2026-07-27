@@ -418,6 +418,12 @@ st.markdown(
         font-size: 11px;
         color: var(--text-3);
     }
+    .brand-quarter {
+        font-size: 10px;
+        color: var(--text-3);
+        opacity: 0.75;
+        margin-top: 2px;
+    }
 
     /* ===== Streamlit overrides ===== */
     .stMarkdown, .stText, p, h1, h2, h3, h4 {

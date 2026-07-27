@@ -57,6 +57,12 @@ def _sparkline_svg(values: list, color: str) -> str:
 
 
 def render():
+    # Welcome context line
+    st.markdown(
+        "<p style='font-size:14px;color:var(--text-3);margin-bottom:2px;font-weight:500'>Your portfolio at a glance</p>",
+        unsafe_allow_html=True,
+    )
+
     # National Brand Summary
     st.markdown(
         """
@@ -119,14 +125,29 @@ def render():
                 direction = "up"
 
             line_color = "#0093D0" if direction == "up" else "#a32d2d"
+            arrow = "▲" if direction == "up" else "▼"
+            arrow_color = "#0093D0" if direction == "up" else "#a32d2d"
+
+            # Determine latest quarter label from data
+            if df is not None:
+                filtered = df[
+                    (df["BRAND"] == brand["brand_db"])
+                    & (df["METRICS"] == "TRX MARKET SHARE")
+                    & (df["YR_QTR_TXT"] >= "2024Q1")
+                ].sort_values("YR_QTR_TXT")
+                qtr_label = filtered["YR_QTR_TXT"].iloc[-1] if not filtered.empty else ""
+            else:
+                qtr_label = ""
 
             svg = _sparkline_svg(values, line_color)
+            qtr_html = f'<div class="brand-quarter">Latest: {qtr_label}</div>' if qtr_label else ""
             st.markdown(
                 f"""
                 <div class="brand-trend-box">
                     <div class="brand-name">{brand['name']}</div>
-                    <div class="brand-category">{brand['market']} · TRX {latest}</div>
+                    <div class="brand-category">{brand['market']} · TRX {latest} <span style="color:{arrow_color};font-size:11px;font-weight:600">{arrow}</span></div>
                     {svg}
+                    {qtr_html}
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -135,10 +156,14 @@ def render():
     st.markdown("<div style='margin-top:4px'></div>", unsafe_allow_html=True)
 
     # Dashboard navigation banner
+    dashboard_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;color:var(--navy-700);flex-shrink:0"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>'
     st.markdown(
-        """
+        f"""
         <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-radius:12px;background:rgba(255,255,255,0.6);backdrop-filter:blur(8px);border:1px solid var(--border);margin-bottom:16px">
-            <div style="font-size:15px;color:var(--text-soft)">Deep dive into brand & market analytics with interactive dashboards</div>
+            <div style="display:flex;align-items:center;gap:12px">
+                {dashboard_icon}
+                <div style="font-size:14px;color:var(--text-soft);line-height:1.5">Explore interactive dashboards covering brand performance, market share trends, competitive landscape, and prescriber-level insights across all Primary Care therapy areas — powered by real-time TRx and NBRx data.</div>
+            </div>
             <a href="https://dss-amer-design.pfizer.com:10000/webapps/USPRIMARYCAREADHOCANALYTICSPARTC/nGjRUYx/"
                target="_blank"
                class="dashboard-pill">
