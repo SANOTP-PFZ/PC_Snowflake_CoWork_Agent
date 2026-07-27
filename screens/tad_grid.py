@@ -56,10 +56,23 @@ def render():
     # Reduce top padding since header is gone
     html_content = html_content.replace(
         "padding:28px 18px 40px;",
-        "padding:8px 18px 10px;",
+        "padding:4px 0 6px;",
+    )
+    # Remove animated particles script
+    html_content = html_content.replace(
+        '<g id="particles"></g>',
+        '',
+    )
+    # Remove the entire <script>...</script> block
+    import re
+    html_content = re.sub(r'<script>.*?</script>', '', html_content, flags=re.DOTALL)
+    # Wrap the .wrap div in a white container and reduce max-width for minimal end space
+    html_content = html_content.replace(
+        '.wrap{max-width:1240px;margin:0 auto}',
+        '.wrap{max-width:100%;margin:0 auto;background:#fff;border-radius:12px;padding:14px 16px;border:1px solid #e3e8f2;box-shadow:0 2px 8px rgba(15,23,42,0.05)}',
     )
     import streamlit.components.v1 as components
-    components.html(html_content, height=310, scrolling=False)
+    components.html(html_content, height=290, scrolling=False)
 
     # AI disclaimer
     st.warning(
