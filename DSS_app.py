@@ -243,7 +243,7 @@ st.markdown(
     .hub-title {
         font-family: 'Manrope', sans-serif;
         font-weight: 800;
-        font-size: 22px;
+        font-size: 26px;
         color: var(--navy-900);
         letter-spacing: -0.025em;
     }
