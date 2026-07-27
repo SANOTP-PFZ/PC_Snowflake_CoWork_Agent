@@ -93,7 +93,15 @@ def render():
         """,
         unsafe_allow_html=True,
     )
-    st.markdown("<div style='margin-top:-20px'></div>", unsafe_allow_html=True)
+    st.markdown(
+        """<style>
+        /* Reduce gap between National Brand Summary and caption */
+        [data-testid="stCaptionContainer"] {
+            margin-top: -12px !important;
+        }
+        </style>""",
+        unsafe_allow_html=True,
+    )
     st.caption("QoQ TRX Market Share trends from 2024Q1 onwards")
     # Bump caption font size
     st.markdown("<style>[data-testid='stCaptionContainer'] p { font-size: 14px !important; }</style>", unsafe_allow_html=True)
