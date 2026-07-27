@@ -69,7 +69,12 @@ def render():
     # Wrap the .wrap div in a white container and reduce max-width for minimal end space
     html_content = html_content.replace(
         '.wrap{max-width:1240px;margin:0 auto}',
-        '.wrap{max-width:100%;margin:0 auto;background:#fff;border-radius:12px;padding:14px 16px;border:1px solid #e3e8f2;box-shadow:0 2px 8px rgba(15,23,42,0.05)}',
+        '.wrap{max-width:100%;margin:0 auto;background:#fff;border-radius:12px;padding:6px 16px 14px;border:1px solid #e3e8f2;box-shadow:0 2px 8px rgba(15,23,42,0.05)}',
+    )
+    # Remove top margin on scroller to eliminate whitespace above SVG
+    html_content = html_content.replace(
+        '.scroller{width:100%;overflow-x:auto;margin:10px 0 0;padding-bottom:6px;',
+        '.scroller{width:100%;overflow-x:auto;margin:0;padding-bottom:6px;',
     )
     import streamlit.components.v1 as components
     components.html(html_content, height=290, scrolling=False)
